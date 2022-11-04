@@ -1,4 +1,4 @@
 package logic.admin;
 
-public class admin {
+public class Admin {
 }
