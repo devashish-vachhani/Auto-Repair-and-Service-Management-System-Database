@@ -2,26 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/config/ConnectionDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/dao/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/logic/landing/Landing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/EmployeeRoleEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/config/ConnectionConstants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/config/ConnectionDB.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/dao/AdminDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/dao/CustomerDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/dao/EmployeeDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/dao/OwnsVehicleOperations.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/dao/VehicleDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/logic/Customer/CustomerUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/logic/admin/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/logic/authentication/Authentication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/logic/manager/manager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/logic/mechanic/mechanic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/logic/receptionist/receptionist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/models/Customer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/models/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/models/ServiceCenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/models/Vehicle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/config/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/config/ConnectionConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/adminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/models/serviceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/ServiceCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/src.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AUTOR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AUTOR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/config/ConnectionConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/config/ConnectionDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/EmployeeDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/customer/customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/landing/Landing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/logic/landing/Landing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/mechanic/mechanic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/models/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/models/EmployeeRoleEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/models/EmployeeRoleEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/models/ServiceCenter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/OwnsVehicleOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/customer/CustomerUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/EmployeeRoleEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/UserRoleEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,25 +82,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.database.main"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />

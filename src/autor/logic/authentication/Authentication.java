@@ -1,9 +1,10 @@
 package logic.authentication;
 
-import dao.EmployeeDAO;
+import dao.UserDAO;
+import logic.Customer.CustomerUI;
 import logic.landing.Landing;
-import models.Employee;
-import models.EmployeeRoleEnum;
+import models.User;
+import models.UserRoleEnum;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,21 +44,23 @@ public class Authentication {
         String username = reader.readLine();
         System.out.println("Enter password");
         String password = reader.readLine();
-        System.out.println("Credentials are:" + " " + username + " " + password);
-        Employee employee = EmployeeDAO.verifyUser(username, password);
-        if(employee != null){
+        User user = UserDAO.verifyUser(username, password);
+        if(user != null){
             //redirect switch case
-            if(employee.getRole() == EmployeeRoleEnum.ADMIN){
+            if(user.getRole() == UserRoleEnum.ADMIN){
                 //redirect to admin
                 //Added print statements just to verify if getting values from DB. Need to call adminMenu
-                System.out.println("From table:" + " " + employee.getUsername() + " " + employee.getRole());
-            } else if(employee.getRole() == EmployeeRoleEnum.MANAGER){
+                System.out.println("From table:" + " " + user.getUid() + " " + user.getRole());
+            } else if(user.getRole() == UserRoleEnum.MANAGER){
                 //redirect to manager
-                System.out.println("From table:" + " " + employee.getUsername() + " " + employee.getRole());
-            } else if(employee.getRole() == EmployeeRoleEnum.RECEPTIONIST){
+                System.out.println("From table:" + " " + user.getUid() + " " + user.getRole());
+            } else if(user.getRole() == UserRoleEnum.RECEPTIONIST){
+                //redirect to receptionist
+            } else if(user.getRole() == UserRoleEnum.MECHANIC){
                 //redirect to receptionist
             } else {
-                //redirect to mechanic
+                System.out.println("UserID:" + user.getUid() + " " + "Role:" + user.getRole());
+                CustomerUI.customerUI(reader);
             }
         } else {
             System.out.println("Invalid username/password. Try logging in again");

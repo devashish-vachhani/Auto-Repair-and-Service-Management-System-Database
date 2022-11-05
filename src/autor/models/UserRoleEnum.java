@@ -1,15 +1,16 @@
 package models;
 
-public enum EmployeeRoleEnum {
+public enum UserRoleEnum {
 
     ADMIN("ADMIN"),
     RECEPTIONIST("RECEPTIONIST"),
     MANAGER("MANAGER"),
-    MECHANIC("MECHANIC");
+    MECHANIC("MECHANIC"),
+    CUSTOMER("CUSTOMER");
 
     private final String text;
 
-    EmployeeRoleEnum(final String text) {
+    UserRoleEnum(final String text) {
         this.text = text;
     }
 

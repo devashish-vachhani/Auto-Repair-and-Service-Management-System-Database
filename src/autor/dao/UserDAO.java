@@ -1,31 +1,34 @@
 package dao;
 
 import config.ConnectionDB;
-import models.Employee;
-import models.EmployeeRoleEnum;
+import models.User;
+import models.UserRoleEnum;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class EmployeeDAO {
+public class UserDAO {
 
     // Verify if the username and password is in the Employee table.
     // Returns a user of Employee type if found, else return null
-    public static Employee verifyUser(String username, String password) {
+    public static User verifyUser(String username, String password) {
         try {
             Connection connection = ConnectionDB.getConnection();
-            String query = "select * from Employee where name='" + username + "' and password='" + password + "'";
+            String query = "select * from USERS where USERNAME='" + username + "' AND PASSWORD='" + password + "'";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
             Integer count = 0;
-            Employee employee = null;
+            User user = null;
             while(rs.next()){
-                employee = new Employee(rs.getString("name"),  EmployeeRoleEnum.valueOf(rs.getString("role")));
+                user = new User(rs.getInt("USERID"), UserRoleEnum.valueOf(rs.getString("ROLE")));
                 count ++;
             }
             if(count != 1)
-                employee = null;
+                user = null;
             ConnectionDB.closeConnection(connection);
-            return employee;
+            return user;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
