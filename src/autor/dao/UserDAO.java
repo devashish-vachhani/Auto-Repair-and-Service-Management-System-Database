@@ -19,7 +19,7 @@ public class UserDAO {
             Integer count = 0;
             User user = null;
             while(rs.next()){
-                user = new User(rs.getInt("userid"), rs.getString("username"),  UserRoleEnum.valueOf(rs.getString("role")));
+                user = new User(rs.getInt("USER_ID"), rs.getString("USERNAME"),  UserRoleEnum.valueOf(rs.getString("ROLE")));
                 count ++;
             }
             if(count != 1)

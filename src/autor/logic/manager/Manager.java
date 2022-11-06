@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import dao.ManagerDAO;
 import logic.landing.Landing;
 
 public class Manager {
@@ -64,7 +65,9 @@ public class Manager {
                 String choice = readerNew.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
+                        ManagerDAO.addEmployees();
                         //
+                        flag = false;
                     }
                     case 2 -> {
                         setupStorePage();
@@ -126,10 +129,12 @@ public class Manager {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        System.out.println("Operational on Saturdays?");
-                        String saturdays = reader.readLine();
-                        //setupStorePage();
-                        flag = false;
+                        System.out.println("Operational on Saturdays? (Y/N)");
+                        String openOnSaturdays = reader.readLine();
+                        if (openOnSaturdays.length() == 1 && (openOnSaturdays.charAt(0) == 'Y' || openOnSaturdays.charAt(0) == 'N')){
+                            ManagerDAO.setOperationalHours();
+                            flag = false;
+                        }
                     }
                     case 2 -> {
                         setupStorePage();
