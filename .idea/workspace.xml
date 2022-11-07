@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="merged with origin/main">
-      <change afterPath="$PROJECT_DIR$/src/autor/dao/ReceptionistDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/CarService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/PendingCustomers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/TypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8fb6164-907d-45a7-b900-6ea44215e6a4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c8fb6164-907d-45a7-b900-6ea44215e6a4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/UserDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/customer/customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/customer/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/logic/manager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/manager/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/receptionist/Receptionist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/receptionist/Receptionist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +92,7 @@
       <updated>1667424135622</updated>
       <workItem from="1667424140122" duration="50000000" />
       <workItem from="1667675528286" duration="2163000" />
-      <workItem from="1667683076141" duration="42156000" />
+      <workItem from="1667683076141" duration="46221000" />
     </task>
     <task id="LOCAL-00001" summary="merged with origin/main">
       <created>1667533178377</created>

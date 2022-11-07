@@ -84,31 +84,34 @@ public class ManagerDAO {
             Integer sc_id = user.getSc_id();
 
             Statement st = connection.createStatement();
-            String query = "SELECT S_ID FROM CARSERVICE WHERE NAME=" + bundle;
+            String query = "SELECT S_ID FROM CARSERVICE WHERE NAME= '" + bundle +"'";
+            //single row
             ResultSet rs = st.executeQuery(query);
-            CarService carService = null;
+            Integer s_id = null;
+//            CarService carService = null;
             while(rs.next()){
-                carService = new CarService(rs.getInt("S_ID"), rs.getString("NAME"), TypeEnum.valueOf(rs.getString("TYPE")));
+//                carService = new CarService(rs.getInt("S_ID"), rs.getString("NAME"), TypeEnum.valueOf(rs.getString("TYPE")));
+                s_id = rs.getInt("S_ID");
             }
 
             Statement st1 = connection.createStatement();
-            String query1 = "UPDATE OFFEREDPRICE SET PRICE=" + hondaPrice + " WHERE BRAND= 'HONDA'";
+            String query1 = "UPDATE OFFEREDPRICE SET PRICE=" + hondaPrice + " WHERE BRAND= 'HONDA' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st1.executeUpdate(query1);
 
             Statement st2 = connection.createStatement();
-            String query2 = "UPDATE OFFEREDPRICE SET PRICE=" + lexusPrice + " WHERE BRAND= 'LEXUS'";
+            String query2 = "UPDATE OFFEREDPRICE SET PRICE=" + lexusPrice + " WHERE BRAND= 'LEXUS'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st2.executeUpdate(query2);
 
             Statement st3 = connection.createStatement();
-            String query3 = "UPDATE OFFEREDPRICE SET PRICE=" + infinitiPrice + " WHERE BRAND= 'INFINITI'";
+            String query3 = "UPDATE OFFEREDPRICE SET PRICE=" + infinitiPrice + " WHERE BRAND= 'INFINITI'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st3.executeUpdate(query3);
 
             Statement st4 = connection.createStatement();
-            String query4 = "UPDATE OFFEREDPRICE SET PRICE=" + nissanPrice + " WHERE BRAND= 'NISSAN'";
+            String query4 = "UPDATE OFFEREDPRICE SET PRICE=" + nissanPrice + " WHERE BRAND= 'NISSAN'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st4.executeUpdate(query4);
 
             Statement st5 = connection.createStatement();
-            String query5 = "UPDATE OFFEREDPRICE SET PRICE=" + toyotaPrice + " WHERE BRAND= 'TOYOTA'";
+            String query5 = "UPDATE OFFEREDPRICE SET PRICE=" + toyotaPrice + " WHERE BRAND= 'TOYOTA'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st5.executeUpdate(query5);
 
             ConnectionDB.closeConnection(connection);
@@ -121,10 +124,9 @@ public class ManagerDAO {
     public static ArrayList<CarService> displayRepairCarService(User user) {
         try {
             Connection connection = ConnectionDB.getConnection();
-            Integer sc_id = user.getSc_id();
 
             Statement st = connection.createStatement();
-            String query = "SELECT S_ID FROM CARSERVICE WHERE NAME= 'R' OR NAME='MR'";
+            String query = "SELECT * FROM CARSERVICE WHERE TYPE= 'R' OR TYPE='MR'";
             ResultSet rs = st.executeQuery(query);
             ArrayList<CarService> carServices = new ArrayList<>();
             while(rs.next()){
@@ -137,28 +139,28 @@ public class ManagerDAO {
         }
     }
 
-    public static String setupRepairPrice(User user, Long s_id, Integer hondaPrice, Integer infinitiPrice, Integer lexusPrice, Integer nissanPrice, Integer toyotaPrice) {
+    public static String setupRepairPrice(User user, Integer s_id, Integer hondaPrice, Integer infinitiPrice, Integer lexusPrice, Integer nissanPrice, Integer toyotaPrice) {
         try {
             Connection connection = ConnectionDB.getConnection();
-
+            Integer sc_id = user.getSc_id();
             Statement st1 = connection.createStatement();
-            String query1 = "UPDATE OFFEREDPRICE SET PRICE=" + hondaPrice + " WHERE BRAND= 'HONDA'";
+            String query1 = "UPDATE OFFEREDPRICE SET PRICE=" + hondaPrice + " WHERE BRAND= 'HONDA' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st1.executeUpdate(query1);
 
             Statement st2 = connection.createStatement();
-            String query2 = "UPDATE OFFEREDPRICE SET PRICE=" + lexusPrice + " WHERE BRAND= 'LEXUS'";
+            String query2 = "UPDATE OFFEREDPRICE SET PRICE=" + lexusPrice + " WHERE BRAND= 'LEXUS' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st2.executeUpdate(query2);
 
             Statement st3 = connection.createStatement();
-            String query3 = "UPDATE OFFEREDPRICE SET PRICE=" + infinitiPrice + " WHERE BRAND= 'INFINITI'";
+            String query3 = "UPDATE OFFEREDPRICE SET PRICE=" + infinitiPrice + " WHERE BRAND= 'INFINITI' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st3.executeUpdate(query3);
 
             Statement st4 = connection.createStatement();
-            String query4 = "UPDATE OFFEREDPRICE SET PRICE=" + nissanPrice + " WHERE BRAND= 'NISSAN'";
+            String query4 = "UPDATE OFFEREDPRICE SET PRICE=" + nissanPrice + " WHERE BRAND= 'NISSAN' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st4.executeUpdate(query4);
 
             Statement st5 = connection.createStatement();
-            String query5 = "UPDATE OFFEREDPRICE SET PRICE=" + toyotaPrice + " WHERE BRAND= 'TOYOTA'";
+            String query5 = "UPDATE OFFEREDPRICE SET PRICE=" + toyotaPrice + " WHERE BRAND= 'TOYOTA' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
             st5.executeUpdate(query5);
 
             ConnectionDB.closeConnection(connection);

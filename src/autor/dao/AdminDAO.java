@@ -82,54 +82,54 @@ public class AdminDAO {
         }
     }
 
-    public static String addService(Long serviceId, String serviceType, String serviceBundle, String serviceCategory, String serviceName, Integer hondaDuration, Integer lexusDuration, Integer infinityDuration, Integer nissanDuration, Integer toyotaDuration) {
+    public static String addService(Integer serviceId, String serviceType, String serviceBundle, String serviceCategory, String serviceName, Integer hondaDuration, Integer lexusDuration, Integer infinityDuration, Integer nissanDuration, Integer toyotaDuration) {
         try {
             Connection connection = ConnectionDB.getConnection();
             PreparedStatement pst1 = connection.prepareStatement("insert into CARSERVICE(S_ID, NAME, TYPE) values(?,?,?)");
-            pst1.setLong(1, serviceId);
+            pst1.setInt(1, serviceId);
             pst1.setString(2, serviceName);
             pst1.setString(3, serviceType);
             Integer res1 = pst1.executeUpdate();
 
             if(serviceType.contains("MAINTENANCE")){
                 PreparedStatement pst2 = connection.prepareStatement("insert into MAINTAINANCE(S_ID, BUNDLE) values(?,?)");
-                pst2.setLong(1, serviceId);
+                pst2.setInt(1, serviceId);
                 pst2.setString(2, serviceBundle);
                 Integer res2 = pst2.executeUpdate();
             }
             if(serviceType.contains("REPAIR")){
                 PreparedStatement pst3 = connection.prepareStatement("insert into REPAIR(S_ID, CATEGORY) values(?,?)");
-                pst3.setLong(1, serviceId);
+                pst3.setInt(1, serviceId);
                 pst3.setString(2, serviceCategory);
                 Integer res3 = pst3.executeUpdate();
             }
 
             PreparedStatement pst4 = connection.prepareStatement("insert into OFFEREDTIME(S_ID, BRAND, HRS) values(?,?,?)");
-            pst4.setLong(1, serviceId);
+            pst4.setInt(1, serviceId);
             pst4.setString(2, "HONDA");
             pst4.setInt(3, hondaDuration);
             Integer res4 = pst4.executeUpdate();
 
             PreparedStatement pst5 = connection.prepareStatement("insert into OFFEREDTIME(S_ID, BRAND, HRS) values(?,?,?)");
-            pst5.setLong(1, serviceId);
+            pst5.setInt(1, serviceId);
             pst5.setString(2, "LEXUS");
             pst5.setInt(3, lexusDuration);
             Integer res5 = pst5.executeUpdate();
 
             PreparedStatement pst6 = connection.prepareStatement("insert into OFFEREDTIME(S_ID, BRAND, HRS) values(?,?,?)");
-            pst6.setLong(1, serviceId);
+            pst6.setInt(1, serviceId);
             pst6.setString(2, "INFINITI");
             pst6.setInt(3, infinityDuration);
             Integer res6 = pst6.executeUpdate();
 
             PreparedStatement pst7 = connection.prepareStatement("insert into OFFEREDTIME(S_ID, BRAND, HRS) values(?,?,?)");
-            pst7.setLong(1, serviceId);
+            pst7.setInt(1, serviceId);
             pst7.setString(2, "NISSAN");
             pst7.setInt(3, nissanDuration);
             Integer res7 = pst7.executeUpdate();
 
             PreparedStatement pst8 = connection.prepareStatement("insert into OFFEREDTIME(S_ID, BRAND, HRS) values(?,?,?)");
-            pst8.setLong(1, serviceId);
+            pst8.setInt(1, serviceId);
             pst8.setString(2, "TOYOTA");
             pst8.setInt(3, toyotaDuration);
             Integer res8 = pst8.executeUpdate();

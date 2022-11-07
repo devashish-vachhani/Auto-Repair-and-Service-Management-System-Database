@@ -184,14 +184,14 @@ public class Manager {
         System.out.println("************Repair/Maintenance and Repair Services");
         Set<Integer> sIdSet = new HashSet<>();
         for(int i=0; i<list.size(); i++){
-            System.out.println("S_ID = " + list.get(i).getSId() + " NAME = " + list.get(i).getName() + " TYPE = " + list.get(i).getType());
+            System.out.println("S_ID = " + list.get(i).getSId() + " NAME = " + list.get(i).getName());
             sIdSet.add(list.get(i).getSId());
         }
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("----Enter S_ID FROM THE FETCHED RESULTS----");
-            Long s_id = Long.parseLong(reader.readLine());
+            Integer s_id = Integer.parseInt(reader.readLine());
             System.out.println("Enter Price For Honda");
             Integer hondaPrice = Integer.parseInt(reader.readLine());
             System.out.println("Enter Price For Infiniti");
@@ -207,6 +207,7 @@ public class Manager {
                 String s = ManagerDAO.setupRepairPrice(user, s_id, hondaPrice, infinitiPrice, lexusPrice, nissanPrice, toyotaPrice);
                 System.out.println(s);
             } else {
+                System.out.println("Hit");
                 setupRepairPrice(user);
             }
         } catch (IOException e) {

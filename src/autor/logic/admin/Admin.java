@@ -51,7 +51,7 @@ public class Admin {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.println("Enter Service ID");
-            Long serviceId = Long.parseLong(reader.readLine());
+            Integer serviceId = Integer.parseInt(reader.readLine());
             System.out.println("Enter Service Type (REPAIR, MAINTENANCE or MAINTENANCEREPAIR)");
             String serviceType = reader.readLine();
             String serviceBundle = null;
@@ -159,7 +159,7 @@ public class Admin {
         }
     }
 
-    private static void addServiceMenu(Long serviceId, String serviceType, String serviceBundle, String serviceCategory, String serviceName, Integer hondaDuration, Integer lexusDuration, Integer infinityDuration, Integer nissanDuration, Integer toyotaDuration) {
+    private static void addServiceMenu(Integer serviceId, String serviceType, String serviceBundle, String serviceCategory, String serviceName, Integer hondaDuration, Integer lexusDuration, Integer infinityDuration, Integer nissanDuration, Integer toyotaDuration) {
         boolean flag = true;
         while(flag) {
             System.out.println("----Add Service Menu Page----");

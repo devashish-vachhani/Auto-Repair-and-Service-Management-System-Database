@@ -1,4 +1,4 @@
 package logic.customer;
 
-public class customer {
+public class Customer {
 }
