@@ -3,7 +3,9 @@ package logic.authentication;
 import dao.UserDAO;
 import logic.admin.Admin;
 import logic.landing.Landing;
+import logic.manager.Manager;
 import logic.mechanic.Mechanic;
+import logic.receptionist.Receptionist;
 import models.User;
 import models.UserRoleEnum;
 
@@ -58,8 +60,11 @@ public class Authentication {
             } else if(user.getRole() == UserRoleEnum.MANAGER){
                 //redirect to manager
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
+                Manager.managerMenu(user);
             } else if(user.getRole() == UserRoleEnum.RECEPTIONIST){
                 //redirect to receptionist
+                System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
+                Receptionist.receptionistMenu(user);
             } else if(user.getRole() == UserRoleEnum.MECHANIC){
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
                 Mechanic.mechanicMenu();

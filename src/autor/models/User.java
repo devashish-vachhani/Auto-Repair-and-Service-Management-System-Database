@@ -1,15 +1,25 @@
 package models;
 
 public class User {
-    Integer userid;
+    Long userid;
+
+    Integer sc_id;
     String username;
     UserRoleEnum role;
 
-    public Integer getUserid() {
+    public Integer getSc_id() {
+        return sc_id;
+    }
+
+    public void setSc_id(Integer sc_id) {
+        this.sc_id = sc_id;
+    }
+
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 
@@ -29,9 +39,10 @@ public class User {
         this.role = role;
     }
 
-    public User(Integer userid, String username, UserRoleEnum role) {
+    public User(Long userid, Integer sc_id, String username, UserRoleEnum role) {
         this.username = username;
         this.role = role;
         this.userid = userid;
+        this.sc_id = sc_id;
     }
 }

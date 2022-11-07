@@ -1278,5 +1278,401 @@
     <user id="421" parent="1" name="XS$NULL">
       <ObjectId>2147483638</ObjectId>
     </user>
+    <table id="422" parent="2" name="CARSERVICE">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518621</ObjectId>
+    </table>
+    <table id="423" parent="2" name="CUSTOMER">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518638</ObjectId>
+    </table>
+    <table id="424" parent="2" name="EMPLOYEE">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518610</ObjectId>
+    </table>
+    <table id="425" parent="2" name="MAINTAINANCE">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518624</ObjectId>
+    </table>
+    <table id="426" parent="2" name="MANAGER">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518613</ObjectId>
+    </table>
+    <table id="427" parent="2" name="MECHANIC">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518619</ObjectId>
+    </table>
+    <table id="428" parent="2" name="MECHANICSCHEDULE">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518709</ObjectId>
+    </table>
+    <table id="429" parent="2" name="MECHANICSCHEDULESWAP">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518711</ObjectId>
+    </table>
+    <table id="430" parent="2" name="OFFEREDPRICE">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518628</ObjectId>
+    </table>
+    <table id="431" parent="2" name="OFFEREDTIME">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518630</ObjectId>
+    </table>
+    <table id="432" parent="2" name="RECEPTIONIST">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518616</ObjectId>
+    </table>
+    <table id="433" parent="2" name="REPAIR">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518626</ObjectId>
+    </table>
+    <table id="434" parent="2" name="SERVICECENTER">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518605</ObjectId>
+    </table>
+    <table id="435" parent="2" name="SERVICEEVENT">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518703</ObjectId>
+    </table>
+    <table id="436" parent="2" name="SERVICEEVENTDETAILS">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518705</ObjectId>
+    </table>
+    <table id="437" parent="2" name="SLOTS">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518707</ObjectId>
+    </table>
+    <table id="438" parent="2" name="USERS">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518607</ObjectId>
+    </table>
+    <table id="439" parent="2" name="VEHICLE">
+      <DetailsLevel>1</DetailsLevel>
+      <ObjectId>518641</ObjectId>
+    </table>
+    <column id="440" parent="422" name="S_ID">
+      <Position>1</Position>
+    </column>
+    <column id="441" parent="422" name="NAME">
+      <Position>2</Position>
+    </column>
+    <column id="442" parent="422" name="TYPE">
+      <Position>3</Position>
+    </column>
+    <index id="443" parent="422" name="CARSERVICE_PK">
+      <ObjectId>518622</ObjectId>
+    </index>
+    <index id="444" parent="422" name="CARSERVICE_UNIQUE_NAME">
+      <ObjectId>518623</ObjectId>
+    </index>
+    <column id="445" parent="423" name="SC_ID">
+      <Position>1</Position>
+    </column>
+    <column id="446" parent="423" name="USER_ID">
+      <Position>2</Position>
+    </column>
+    <column id="447" parent="423" name="F_NAME">
+      <Position>3</Position>
+    </column>
+    <column id="448" parent="423" name="L_NAME">
+      <Position>4</Position>
+    </column>
+    <column id="449" parent="423" name="ADDRESS">
+      <Position>5</Position>
+    </column>
+    <column id="450" parent="423" name="EMAIL">
+      <Position>6</Position>
+    </column>
+    <column id="451" parent="423" name="PHONE_NO">
+      <Position>7</Position>
+    </column>
+    <column id="452" parent="423" name="STANDING">
+      <Position>8</Position>
+    </column>
+    <column id="453" parent="423" name="STATUS">
+      <Position>9</Position>
+    </column>
+    <index id="454" parent="423" name="CUSTOMER_PK">
+      <ObjectId>518639</ObjectId>
+    </index>
+    <index id="455" parent="423" name="CUSTOMER_EMAIL_UNIQUE">
+      <ObjectId>518640</ObjectId>
+    </index>
+    <column id="456" parent="424" name="USER_ID">
+      <Position>1</Position>
+    </column>
+    <column id="457" parent="424" name="NAME">
+      <Position>2</Position>
+    </column>
+    <column id="458" parent="424" name="ADDRESS">
+      <Position>3</Position>
+    </column>
+    <column id="459" parent="424" name="EMAIL">
+      <Position>4</Position>
+    </column>
+    <column id="460" parent="424" name="PHONE_NO">
+      <Position>5</Position>
+    </column>
+    <column id="461" parent="424" name="ROLE">
+      <Position>6</Position>
+    </column>
+    <column id="462" parent="424" name="SC_ID">
+      <Position>7</Position>
+    </column>
+    <index id="463" parent="424" name="EMP_PK">
+      <ObjectId>518611</ObjectId>
+    </index>
+    <index id="464" parent="424" name="EMAIL_UNIQUE">
+      <ObjectId>518612</ObjectId>
+    </index>
+    <column id="465" parent="425" name="S_ID">
+      <Position>1</Position>
+    </column>
+    <column id="466" parent="425" name="BUNDLE">
+      <Position>2</Position>
+    </column>
+    <index id="467" parent="425" name="MAINTAINANCEPK">
+      <ObjectId>518625</ObjectId>
+    </index>
+    <column id="468" parent="426" name="USER_ID">
+      <Position>1</Position>
+    </column>
+    <column id="469" parent="426" name="ANNUAL_SALARY">
+      <Position>2</Position>
+    </column>
+    <column id="470" parent="426" name="SC_ID">
+      <Position>3</Position>
+    </column>
+    <index id="471" parent="426" name="MANAGER_PK">
+      <ObjectId>518614</ObjectId>
+    </index>
+    <index id="472" parent="426" name="MANAGER_SC_ID_UNIQUE">
+      <ObjectId>518615</ObjectId>
+    </index>
+    <column id="473" parent="427" name="USER_ID">
+      <Position>1</Position>
+    </column>
+    <column id="474" parent="427" name="SC_ID">
+      <Position>2</Position>
+    </column>
+    <column id="475" parent="427" name="HOURS_WORKED">
+      <Position>3</Position>
+    </column>
+    <index id="476" parent="427" name="MECHANIC_PK">
+      <ObjectId>518620</ObjectId>
+    </index>
+    <column id="477" parent="428" name="MS_ID">
+      <Position>1</Position>
+    </column>
+    <column id="478" parent="428" name="MECH_ID">
+      <Position>2</Position>
+    </column>
+    <column id="479" parent="428" name="SC_ID">
+      <Position>3</Position>
+    </column>
+    <column id="480" parent="428" name="SLOT_ID">
+      <Position>4</Position>
+    </column>
+    <column id="481" parent="428" name="AVAILABLE">
+      <Position>5</Position>
+    </column>
+    <column id="482" parent="428" name="WORKING">
+      <Position>6</Position>
+    </column>
+    <index id="483" parent="428" name="MECHANICSCHEDULE_PK">
+      <ObjectId>518710</ObjectId>
+    </index>
+    <column id="484" parent="429" name="REGISTER_ID">
+      <Position>1</Position>
+    </column>
+    <column id="485" parent="429" name="MS_ID1">
+      <Position>2</Position>
+    </column>
+    <column id="486" parent="429" name="MS_ID2">
+      <Position>3</Position>
+    </column>
+    <column id="487" parent="429" name="APPROVED">
+      <Position>4</Position>
+    </column>
+    <index id="488" parent="429" name="MECHANICSCHEDULESWAP_PK">
+      <ObjectId>518712</ObjectId>
+    </index>
+    <column id="489" parent="430" name="S_ID">
+      <Position>1</Position>
+    </column>
+    <column id="490" parent="430" name="SC_ID">
+      <Position>2</Position>
+    </column>
+    <column id="491" parent="430" name="BRAND">
+      <Position>3</Position>
+    </column>
+    <column id="492" parent="430" name="PRICE">
+      <Position>4</Position>
+    </column>
+    <index id="493" parent="430" name="OFFEREDPRICE_PK">
+      <ObjectId>518629</ObjectId>
+    </index>
+    <column id="494" parent="431" name="S_ID">
+      <Position>1</Position>
+    </column>
+    <column id="495" parent="431" name="BRAND">
+      <Position>2</Position>
+    </column>
+    <column id="496" parent="431" name="HRS">
+      <Position>3</Position>
+    </column>
+    <index id="497" parent="431" name="OFFEREDTIME_PK">
+      <ObjectId>518631</ObjectId>
+    </index>
+    <column id="498" parent="432" name="USER_ID">
+      <Position>1</Position>
+    </column>
+    <column id="499" parent="432" name="SC_ID">
+      <Position>2</Position>
+    </column>
+    <column id="500" parent="432" name="ANNUAL_SALARY">
+      <Position>3</Position>
+    </column>
+    <index id="501" parent="432" name="RECEPTIONIST_PK">
+      <ObjectId>518617</ObjectId>
+    </index>
+    <index id="502" parent="432" name="RECEPTIONIST_SC_ID_UNIQUE">
+      <ObjectId>518618</ObjectId>
+    </index>
+    <column id="503" parent="433" name="S_ID">
+      <Position>1</Position>
+    </column>
+    <column id="504" parent="433" name="CATEGORY">
+      <Position>2</Position>
+    </column>
+    <index id="505" parent="433" name="REPAIR_PK">
+      <ObjectId>518627</ObjectId>
+    </index>
+    <column id="506" parent="434" name="SC_ID">
+      <Position>1</Position>
+    </column>
+    <column id="507" parent="434" name="ADDRESS">
+      <Position>2</Position>
+    </column>
+    <column id="508" parent="434" name="TELEPHONE_NO">
+      <Position>3</Position>
+    </column>
+    <column id="509" parent="434" name="STATE">
+      <Position>4</Position>
+    </column>
+    <column id="510" parent="434" name="OPEN_SAT">
+      <Position>5</Position>
+    </column>
+    <column id="511" parent="434" name="MIN_WAGE">
+      <Position>6</Position>
+    </column>
+    <column id="512" parent="434" name="MAX_WAGE">
+      <Position>7</Position>
+    </column>
+    <column id="513" parent="434" name="HOURLY_WAGE">
+      <Position>8</Position>
+    </column>
+    <index id="514" parent="434" name="SERVICECENTER_PK">
+      <ObjectId>518606</ObjectId>
+    </index>
+    <column id="515" parent="435" name="SE_ID">
+      <Position>1</Position>
+    </column>
+    <column id="516" parent="435" name="VIN">
+      <Position>2</Position>
+    </column>
+    <column id="517" parent="435" name="MECH_ID">
+      <Position>3</Position>
+    </column>
+    <column id="518" parent="435" name="SC_ID">
+      <Position>4</Position>
+    </column>
+    <column id="519" parent="435" name="CUST_ID">
+      <Position>5</Position>
+    </column>
+    <column id="520" parent="435" name="AMOUNT_PAID">
+      <Position>6</Position>
+    </column>
+    <column id="521" parent="435" name="AMOUNT_CHARGED">
+      <Position>7</Position>
+    </column>
+    <column id="522" parent="435" name="SERVICE_DATE">
+      <Position>8</Position>
+    </column>
+    <column id="523" parent="435" name="STATUS">
+      <Position>9</Position>
+    </column>
+    <index id="524" parent="435" name="SERVICEEVENT_PK">
+      <ObjectId>518704</ObjectId>
+    </index>
+    <column id="525" parent="436" name="SE_ID">
+      <Position>1</Position>
+    </column>
+    <column id="526" parent="436" name="S_ID">
+      <Position>2</Position>
+    </column>
+    <index id="527" parent="436" name="SERVICEEVENTDETAILS_PK">
+      <ObjectId>518706</ObjectId>
+    </index>
+    <column id="528" parent="437" name="WEEK">
+      <Position>1</Position>
+    </column>
+    <column id="529" parent="437" name="SLOT_DAY">
+      <Position>2</Position>
+    </column>
+    <column id="530" parent="437" name="SLOTS">
+      <Position>3</Position>
+    </column>
+    <column id="531" parent="437" name="SLOT_ID">
+      <Position>4</Position>
+    </column>
+    <index id="532" parent="437" name="SLOTS_PK">
+      <ObjectId>518708</ObjectId>
+    </index>
+    <column id="533" parent="438" name="USER_ID">
+      <Position>1</Position>
+    </column>
+    <column id="534" parent="438" name="SC_ID">
+      <Position>2</Position>
+    </column>
+    <column id="535" parent="438" name="USERNAME">
+      <Position>3</Position>
+    </column>
+    <column id="536" parent="438" name="PASSWORD">
+      <Position>4</Position>
+    </column>
+    <column id="537" parent="438" name="ROLE">
+      <Position>5</Position>
+    </column>
+    <index id="538" parent="438" name="USERS_PK">
+      <ObjectId>518608</ObjectId>
+    </index>
+    <index id="539" parent="438" name="USERS_UNIQUE_USERNAME">
+      <ObjectId>518609</ObjectId>
+    </index>
+    <column id="540" parent="439" name="VIN">
+      <Position>1</Position>
+    </column>
+    <column id="541" parent="439" name="USER_ID">
+      <Position>2</Position>
+    </column>
+    <column id="542" parent="439" name="SC_ID">
+      <Position>3</Position>
+    </column>
+    <column id="543" parent="439" name="BRAND">
+      <Position>4</Position>
+    </column>
+    <column id="544" parent="439" name="MILEAGE">
+      <Position>5</Position>
+    </column>
+    <column id="545" parent="439" name="YEAR">
+      <Position>6</Position>
+    </column>
+    <column id="546" parent="439" name="LAST_SERVICE">
+      <Position>7</Position>
+    </column>
+    <index id="547" parent="439" name="VEHICLE_PK">
+      <ObjectId>518642</ObjectId>
+    </index>
   </database-model>
 </dataSource>

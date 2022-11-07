@@ -2,6 +2,7 @@ package logic.admin;
 
 import dao.AdminDAO;
 import logic.landing.Landing;
+import models.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
