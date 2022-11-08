@@ -6,12 +6,14 @@ import logic.landing.Landing;
 import logic.manager.Manager;
 import logic.mechanic.Mechanic;
 import logic.receptionist.Receptionist;
+import models.CarService;
 import models.User;
 import models.UserRoleEnum;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Console;
 
 
 public class Authentication {
@@ -36,8 +38,9 @@ public class Authentication {
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                loginMenu();
             }
         }
     }
@@ -47,34 +50,30 @@ public class Authentication {
         System.out.println("Enter username");
         String username = reader.readLine();
         System.out.println("Enter password");
+//        Console console = System.console();
         String password = reader.readLine();
         System.out.println("Credentials are:" + " " + username + " " + password);
         User user = UserDAO.verifyUser(username, password);
         if(user != null){
             //redirect switch case
             if(user.getRole() == UserRoleEnum.ADMIN){
-                //redirect to admin
-                //Added print statements just to verify if getting values from DB. Need to call adminMenu
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
                 Admin.adminMenu();
             } else if(user.getRole() == UserRoleEnum.MANAGER){
-                //redirect to manager
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
                 Manager.managerMenu(user);
             } else if(user.getRole() == UserRoleEnum.RECEPTIONIST){
-                //redirect to receptionist
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
                 Receptionist.receptionistMenu(user);
             } else if(user.getRole() == UserRoleEnum.MECHANIC){
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
-                Mechanic.mechanicMenu();
-                //redirect to mechanic
+                Mechanic.mechanicMenu(user);
             } else {
                 //redirect to customer
             }
         } else {
             System.out.println("Invalid username/password. Try logging in again");
             inputCredentials();
-        };
+        }
     }
 }

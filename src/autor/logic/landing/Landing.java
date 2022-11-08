@@ -13,7 +13,8 @@ public class Landing {
             while(flag) {
                 System.out.println("----Home Page----");
                 System.out.println("1. Login");
-                System.out.println("2. Exit");
+                System.out.println("2. Run Queries");
+                System.out.println("3. Exit");
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 try {
                     String choice = reader.readLine();
@@ -23,14 +24,18 @@ public class Landing {
                             flag = false;
                         }
                         case 2 -> {
+                            // TODO
+                        }
+                        case 3 -> {
                             System.out.println("AUTOR terminated");
                             System.exit(0);
                             flag = false;
                         }
-                        default -> System.out.println("try agian");
+                        default -> System.out.println("try again");
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    System.out.println("Wrong Input, try again!!");
+                    homeMenu();
                 }
         }
     }

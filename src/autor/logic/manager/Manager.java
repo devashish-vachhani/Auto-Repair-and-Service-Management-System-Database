@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import dao.AdminDAO;
 import dao.ManagerDAO;
 import logic.landing.Landing;
 import models.CarService;
@@ -26,21 +27,22 @@ public class Manager {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        setupStorePage(user);
                         flag = false;
+                        setupStorePage(user);
                     }
                     case 2 -> {
-                        inputEmployeeData(user);
                         flag = false;
+                        inputEmployeeData(user);
                     }
                     case 3 -> {
-                        Landing.homeMenu();
                         flag = false;
+                        Landing.homeMenu();
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                managerMenu(user);
             }
         }
     }
@@ -72,11 +74,38 @@ public class Manager {
                 System.out.println("Enter Compensation ($)");
                 compensation = Integer.parseInt(reader.readLine());
             }
-            String s = ManagerDAO.addEmployees(user, userId,firstName, lastName, address, emailAddress, phoneNumber, role, startDate, compensation, username);
-            System.out.println(s);
-        } catch (IOException e) {
-            e.printStackTrace();
+            addEmployees(user, userId,firstName, lastName, address, emailAddress, phoneNumber, role, startDate, compensation, username);
+        } catch (Exception e) {
+            System.out.println("Wrong Input, try again!!");
             inputEmployeeData(user);
+        }
+    }
+
+    private static void addEmployees(User user, Long userId, String firstName, String lastName, String address, String emailAddress, Long phoneNumber, String role, String startDate, Integer compensation, String username) {
+        boolean flag = true;
+        while(flag) {
+            System.out.println("1. Add");
+            System.out.println("2. Go Back");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                String choice = reader.readLine();
+                switch (Integer.parseInt(choice)) {
+                    case 1 -> {
+                        String s = ManagerDAO.addEmployees(user, userId, firstName, lastName, address, emailAddress, phoneNumber, role, startDate, compensation, username);
+                        System.out.println(s);
+                        flag = false;
+                        setupStorePage(user);
+                    }
+                    case 2 -> {
+                        flag = false;
+                        setupStorePage(user);
+                    }
+                    default -> System.out.println("Invalid Inputs. Try again");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid Inputs. Try again");
+                addEmployees(user, userId, firstName, lastName, address, emailAddress, phoneNumber, role, startDate, compensation, username);
+            }
         }
     }
 
@@ -86,32 +115,42 @@ public class Manager {
             System.out.println("----Setup Store----");
             System.out.println("1. Add Employee");
             System.out.println("2. Setup operational hours");
-            System.out.println("3. Setup service Prices");
-            System.out.println("4. Go Back");
+            System.out.println("3. Setup hourly rate");
+            System.out.println("4. Setup service Prices");
+            System.out.println("5. Go Back");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        inputEmployeeData(user);
                         flag = false;
+                        inputEmployeeData(user);
+                        managerMenu(user);
                     }
                     case 2 -> {
-                        setOperationalHours(user);
                         flag = false;
+                        setOperationalHours(user);
+                        managerMenu(user);
                     }
                     case 3 -> {
-                        setupServicePrices(user);
                         flag = false;
+                        setHourlyRate(user);
+                        managerMenu(user);
                     }
                     case 4 -> {
-                        managerMenu(user);
                         flag = false;
+                        setupServicePrices(user);
+                        managerMenu(user);
+                    }
+                    case 5 -> {
+                        flag = false;
+                        managerMenu(user);
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                setupStorePage(user);
             }
         }
     }
@@ -130,19 +169,56 @@ public class Manager {
                         System.out.println("Operational on Saturdays? (Y/N)");
                         String openOnSaturdays = reader.readLine();
                         if (openOnSaturdays.length() == 1 && (openOnSaturdays.charAt(0) == 'Y' || openOnSaturdays.charAt(0) == 'N')){
+                            flag = false;
                             String s = ManagerDAO.setOperationalHours(user, openOnSaturdays);
                             System.out.println(s);
+                            setupStorePage(user);
+                        } else {
                             flag = false;
+                            System.out.println("Wrong Input, try again!!");
+                            setOperationalHours(user);
                         }
                     }
                     case 2 -> {
-                        setupStorePage(user);
                         flag = false;
+                        setupStorePage(user);
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                setOperationalHours(user);
+            }
+        }
+    }
+
+    private static void setHourlyRate(User user) throws IOException {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("----Setup Hourly Rate----");
+            System.out.println("1. Setup hourly rate");
+            System.out.println("2. Go Back");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                String choice = reader.readLine();
+                switch (Integer.parseInt(choice)) {
+                    case 1 -> {
+                        System.out.println("Enter Hourly Rate");
+                        Integer hourlyRate = Integer.parseInt(reader.readLine());
+                        flag = false;
+                        String s = ManagerDAO.setHourlyRate(user, hourlyRate);
+                        System.out.println(s);
+                        setupStorePage(user);
+                    }
+                    case 2 -> {
+                        flag = false;
+                        setupStorePage(user);
+                    }
+                    default -> System.out.println("try again");
+                }
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                setHourlyRate(user);
             }
         }
     }
@@ -159,22 +235,26 @@ public class Manager {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        setupMaintenancePrice(user);
                         flag = false;
+                        setupMaintenancePrice(user);
+                        setupStorePage(user);
                     }
                     case 2 -> {
-                        setupRepairPrice(user);
                         flag = false;
+                        setupRepairPrice(user);
+                        setupStorePage(user);
                     }
                     case 3 -> {
-                        setupStorePage(user);
                         flag = false;
+                        setupStorePage(user);
+                        setupStorePage(user);
                     }
                     default ->
                             System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                setupServicePrices(user);
             }
         }
     }
@@ -207,12 +287,12 @@ public class Manager {
                 String s = ManagerDAO.setupRepairPrice(user, s_id, hondaPrice, infinitiPrice, lexusPrice, nissanPrice, toyotaPrice);
                 System.out.println(s);
             } else {
-                System.out.println("Hit");
+                System.out.println("Incorrect S_ID ENTERED, try again!!");
                 setupRepairPrice(user);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            setupMaintenancePrice(user);
+        } catch (Exception e) {
+            System.out.println("Wrong Input, try again!!");
+            setupRepairPrice(user);
         }
     }
 
@@ -240,10 +320,11 @@ public class Manager {
                 String s = ManagerDAO.setupMaintenancePrice(user, bundle, hondaPrice, infinitiPrice, lexusPrice, nissanPrice, toyotaPrice);
                 System.out.println(s);
             } else {
+                System.out.println("Incorrect Bundle Entered! Try Again");
                 setupMaintenancePrice(user);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Wrong Input, try again!!");
             setupMaintenancePrice(user);
         }
     }

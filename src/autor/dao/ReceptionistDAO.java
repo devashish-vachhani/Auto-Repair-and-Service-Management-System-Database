@@ -45,9 +45,10 @@ public class ReceptionistDAO {
             Integer res3 = pst3.executeUpdate();
 
             ConnectionDB.closeConnection(connection);
-            return "Sucess";
+            return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 
@@ -62,7 +63,7 @@ public class ReceptionistDAO {
             ResultSet rs = st.executeQuery(query);
             ArrayList<PendingCustomers> pendingCustomers= new ArrayList<>();
             while (rs.next()){
-                pendingCustomers.add(new PendingCustomers(rs.getLong("CUST_ID"), rs.getString("F_NAME"), rs.getString("L_NAME"), rs.getInt("SE_ID"), rs.getString("SERVICE_DATE"), rs.getInt("AMOUNT_CHARGED")));
+                pendingCustomers.add(new PendingCustomers(rs.getLong("CUST_ID"), rs.getString("F_NAME"), rs.getString("L_NAME"), rs.getInt("SE_ID"), rs.getInt("SERVICE_DATE"), rs.getInt("AMOUNT_CHARGED")));
             }
             ConnectionDB.closeConnection(connection);
             return pendingCustomers;

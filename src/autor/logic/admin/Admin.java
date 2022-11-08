@@ -23,26 +23,25 @@ public class Admin {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        //TODO
-                        systemSetUpInput();
-                        flag = false;
+                        System.out.println("Data already added!!");
                     }
                     case 2 -> {
-                        inputStoreData();
                         flag = false;
+                        inputStoreData();
                     }
                     case 3 -> {
-                        inputServiceData();
                         flag = false;
+                        inputServiceData();
                     }
                     case 4 -> {
-                        Landing.homeMenu();
                         flag = false;
+                        Landing.homeMenu();
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                adminMenu();
             }
         }
     }
@@ -51,20 +50,21 @@ public class Admin {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.println("Enter Service ID");
+            //autoincerement
             Integer serviceId = Integer.parseInt(reader.readLine());
-            System.out.println("Enter Service Type (REPAIR, MAINTENANCE or MAINTENANCEREPAIR)");
+            System.out.println("Enter Service Type (R, M or MR)");
             String serviceType = reader.readLine();
             String serviceBundle = null;
             String serviceCategory = null;
-            if(serviceType.equals("MAINTENANCEREPAIR")){
+            if(serviceType.equals("MR")){
                 System.out.println("Enter Service Category");
                 serviceCategory = reader.readLine();
                 System.out.println("Enter Service Bundle (A, B or C)");
                 serviceBundle = reader.readLine();
-            } else if(serviceType.equals("REPAIR")) {
-                System.out.println("Enter Service Category");
+            } else if(serviceType.equals("R")) {
+                System.out.println("Enter Service Category (Engine Services, Exhaust Services, Electrical Services, Transmission Services, Tire Services, Heating and AC Services)");
                 serviceCategory = reader.readLine();
-            } else if(serviceType.equals("REPAIR")) {
+            } else if(serviceType.equals("M")) {
                 System.out.println("Enter Service Bundle (A, B or C");
                 serviceBundle = reader.readLine();
             } else {
@@ -87,77 +87,78 @@ public class Admin {
             System.out.println("Service data is:" + " " + serviceId + " " + serviceType + " " + serviceBundle  + " " + serviceCategory + " " + serviceName + " " + hondaDuration + " " + lexusDuration + " " + infinityDuration + " " + nissanDuration + " " + toyotaDuration);
 
             addServiceMenu(serviceId, serviceType, serviceBundle, serviceCategory, serviceName, hondaDuration, lexusDuration, infinityDuration, nissanDuration, toyotaDuration);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Wrong Input, try again!!");
+            inputServiceData();
         }
     }
 
-    private static void systemSetUpInput() throws IOException {
-        System.out.println("Input Files");
-        StringBuilder serviceGeneralInfoQuery = new StringBuilder();
-        StringBuilder storeGeneralInfoQuery = new StringBuilder();
-        try {
-            System.out.println("Enter Service General Info File Name");
-            String file1 = new BufferedReader(new InputStreamReader(System.in)).readLine();
-            BufferedReader reader1 = new BufferedReader(new FileReader(file1));
-            String line1;
+//    private static void systemSetUpInput() throws IOException {
+//        System.out.println("Input Files");
+//        StringBuilder serviceGeneralInfoQuery = new StringBuilder();
+//        StringBuilder storeGeneralInfoQuery = new StringBuilder();
+//        try {
+//            System.out.println("Enter Service General Info File Name");
+//            String file1 = new BufferedReader(new InputStreamReader(System.in)).readLine();
+//            BufferedReader reader1 = new BufferedReader(new FileReader(file1));
+//            String line1;
+//
+//            while((line1 = reader1.readLine()) != null){
+//                serviceGeneralInfoQuery.append(line1);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            // Redirect to System Setup Input
+//            System.out.println("Service General Info File Not Found, Try Again");
+//            systemSetUpInput();;
+//        }
+//        try {
+//            System.out.println("Enter Store General Info File Name");
+//            String file2 = new BufferedReader(new InputStreamReader(System.in)).readLine();
+//            BufferedReader reader2 = new BufferedReader(new FileReader(file2));
+//            String line2;
+//            while((line2 = reader2.readLine()) != null){
+//                storeGeneralInfoQuery.append(line2);
+//            }
+//        } catch (IOException e){
+//            e.printStackTrace();
+//            // Redirect to System Setup Input
+//            System.out.println("Store General Info File Not Found, Try Again");
+//            systemSetUpInput();;
+//        }
+//        systemSetUpMenu(serviceGeneralInfoQuery.toString(), storeGeneralInfoQuery.toString());
+//    }
 
-            while((line1 = reader1.readLine()) != null){
-                serviceGeneralInfoQuery.append(line1);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Redirect to System Setup Input
-            System.out.println("Service General Info File Not Found, Try Again");
-            systemSetUpInput();;
-        }
-        try {
-            System.out.println("Enter Store General Info File Name");
-            String file2 = new BufferedReader(new InputStreamReader(System.in)).readLine();
-            BufferedReader reader2 = new BufferedReader(new FileReader(file2));
-            String line2;
-            while((line2 = reader2.readLine()) != null){
-                storeGeneralInfoQuery.append(line2);
-            }
-        } catch (IOException e){
-            e.printStackTrace();
-            // Redirect to System Setup Input
-            System.out.println("Store General Info File Not Found, Try Again");
-            systemSetUpInput();;
-        }
-        systemSetUpMenu(serviceGeneralInfoQuery.toString(), storeGeneralInfoQuery.toString());
-    }
-
-    private static void systemSetUpMenu(String serviceGeneralInfoQuery, String storeGeneralInfoQuery) {
-        boolean flag = true;
-        while(flag) {
-            System.out.println("----System Set Up Menu Page----");
-            System.out.println("1. Upload Service General Information");
-            System.out.println("2. Upload Store General Information");
-            System.out.println("3. Go Back");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                String choice = reader.readLine();
-                switch (Integer.parseInt(choice)) {
-                    case 1 -> {
-                        AdminDAO.executeServiceGeneralInfoQuery(serviceGeneralInfoQuery);
-                        flag = false;
-                    }
-                    case 2 -> {
-                        AdminDAO.executeStoreGeneralInfoQuery(storeGeneralInfoQuery);
-                        flag = false;
-                    }
-                    case 3 -> {
-                        adminMenu();
-                        flag = false;
-                    }
-                    default -> System.out.println("try again");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    private static void systemSetUpMenu(String serviceGeneralInfoQuery, String storeGeneralInfoQuery) {
+//        boolean flag = true;
+//        while(flag) {
+//            System.out.println("----System Set Up Menu Page----");
+//            System.out.println("1. Upload Service General Information");
+//            System.out.println("2. Upload Store General Information");
+//            System.out.println("3. Go Back");
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//            try {
+//                String choice = reader.readLine();
+//                switch (Integer.parseInt(choice)) {
+//                    case 1 -> {
+//                        AdminDAO.executeServiceGeneralInfoQuery(serviceGeneralInfoQuery);
+//                        flag = false;
+//                    }
+//                    case 2 -> {
+//                        AdminDAO.executeStoreGeneralInfoQuery(storeGeneralInfoQuery);
+//                        flag = false;
+//                    }
+//                    case 3 -> {
+//                        adminMenu();
+//                        flag = false;
+//                    }
+//                    default -> System.out.println("try again");
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     private static void addServiceMenu(Integer serviceId, String serviceType, String serviceBundle, String serviceCategory, String serviceName, Integer hondaDuration, Integer lexusDuration, Integer infinityDuration, Integer nissanDuration, Integer toyotaDuration) {
         boolean flag = true;
@@ -173,15 +174,17 @@ public class Admin {
                         String s= AdminDAO.addService(serviceId, serviceType, serviceBundle, serviceCategory, serviceName, hondaDuration, lexusDuration, infinityDuration, nissanDuration, toyotaDuration);
                         System.out.println(s);
                         flag = false;
+                        adminMenu();
                     }
                     case 2 -> {
-                        adminMenu();
                         flag = false;
+                        adminMenu();
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Invalid Inputs. Try again");
+                addServiceMenu(serviceId, serviceType, serviceBundle, serviceCategory, serviceName, hondaDuration, lexusDuration, infinityDuration, nissanDuration, toyotaDuration);
             }
         }
 
@@ -201,15 +204,17 @@ public class Admin {
                         String s = AdminDAO.addStore(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrPassword, mgrSalary, mgrId, mgrEmail, mgrPhone);
                         System.out.println(s);
                         flag = false;
+                        adminMenu();
                     }
                     case 2 -> {
-                        adminMenu();
                         flag = false;
+                        adminMenu();
                     }
-                    default -> System.out.println("try again");
+                    default -> System.out.println("Wrong Input, Try Again!!");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Invalid Inputs. Try again");
+                addStoreMenu(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrPassword, mgrSalary, mgrId, mgrEmail, mgrPhone);
             }
         }
     }
@@ -251,8 +256,8 @@ public class Admin {
             Long mgrId = Long.parseLong(reader.readLine());
             System.out.println("Store data is:" + " " + serviceCenterId + " " + address  + " " + telephone + " " + state + " " + openSaturdays + " " + mechMaxWage + " " + mechMinWage  + " " + mechHourlyWage + " " + mgrFirstName + " " +  mgrLastName + " " + mgrUsername + " " +  mgrPassword  + " " + mgrSalary + " " + mgrId);
             addStoreMenu(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrPassword, mgrSalary, mgrId, mgrEmail, mgrPhone);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Wrong Input, try again!!");
             inputStoreData();
         }
     }

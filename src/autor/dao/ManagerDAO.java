@@ -47,16 +47,73 @@ public class ManagerDAO {
                 pst2.setInt(3, compensation);
                 Integer res2= pst2.executeUpdate();
             } else {
-                PreparedStatement pst3 = connection.prepareStatement("insert into MECHANIC(USER_ID, SC_ID, HOURS_WORKED) values(?,?,?)");
+                PreparedStatement pst3 = connection.prepareStatement("insert into MECHANIC(USER_ID, SC_ID) values(?,?)");
                 pst3.setLong(1, userId);
-                pst3.setInt(2, user.getSc_id());
-                pst3.setInt(3, 50);
+                pst3.setInt(2, user.getSc_id());;
                 Integer res3= pst3.executeUpdate();
+
+                Statement st = connection.createStatement();
+                String query = "SELECT OPEN_SAT FROM SERVICECENTER WHERE SC_ID=" + user.getSc_id();
+                Integer svcId = user.getSc_id();
+                ResultSet rs = st.executeQuery(query);
+                Integer openSat = null;
+                while(rs.next()){
+                    openSat = rs.getInt("OPEN_SAT");
+                }
+                StringBuilder queryForMechSchedule = new StringBuilder("INSERT ALL ");
+                StringBuilder queryForSlots = new StringBuilder("INSERT ALL ");
+                Integer slot_id = 1;
+                for(int week=1;week<=4;week++){
+                    for(int day=1;day<=6;day++){
+                        if(day!=6){
+                            for(int slot=1;slot<=11;slot++){
+                                queryForMechSchedule.append("into mechanicschedule (MECH_ID,SC_ID,SLOT_ID,AVAILABLE) VALUES (" + userId + ", " + svcId + ", " + slot_id + ", 'AVAILABLE')");
+//                                queryForSlots.append("into slots (WEEK,SLOT_DAY,SLOTS) VALUES (" + week + ", " + day + ", " + slot + ")");
+                                slot_id++;
+                                if (slot_id != 241){
+                                    queryForMechSchedule.append(" \n");
+                                    queryForSlots.append(" \n");
+                                }
+                                else{
+                                    queryForMechSchedule.append("SELECT 1 FROM DUAL");
+                                    queryForSlots.append("SELECT 1 FROM DUAL");
+                                }
+                            }
+                        }
+                        else{
+//                          For saturdays
+                            for(int slot=1;slot<=5;slot++) {
+                                if (openSat == 1) {
+                                    queryForMechSchedule.append("into mechanicschedule (MECH_ID,SC_ID,SLOT_ID,AVAILABLE) VALUES (" + userId + ", " + svcId + ", " + slot_id + ", 'AVAILABLE')");
+                                } else {
+                                    queryForMechSchedule.append("into mechanicschedule (MECH_ID,SC_ID,SLOT_ID,AVAILABLE) VALUES (" + userId + ", " + svcId + ", " + slot_id + ", 'CLOSED')");
+                                }
+//                                queryForSlots.append("into slots (WEEK,SLOT_DAY,SLOTS) VALUES (" + week + ", " + day + ", " + slot + ")");
+                                slot_id++;
+                                if (slot_id != 241){
+                                    queryForMechSchedule.append(" \n");
+                                   queryForSlots.append(" \n");
+                                }
+                                else{
+                                    queryForMechSchedule.append("SELECT 1 FROM DUAL");
+                                    queryForSlots.append("SELECT 1 FROM DUAL");
+                                }
+                            }
+                        }
+                    }
+                }
+//                String queryAllSlots = queryForSlots.toString();
+//                System.out.println(queryAllSlots);
+//                st.executeQuery(queryAllSlots);
+                String queryAllInserts = queryForMechSchedule.toString();
+                System.out.println(queryAllInserts);
+                st.executeQuery(queryAllInserts);
             }
             ConnectionDB.closeConnection(connection);
             return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 
@@ -72,9 +129,22 @@ public class ManagerDAO {
             String query = "UPDATE SERVICECENTER SET OPEN_SAT=" + isOpen + " WHERE SC_ID=" + user.getSc_id();
             st.executeUpdate(query);
             ConnectionDB.closeConnection(connection);
+            Integer[] slotIdRange = new Integer[]{56,57,58,59,60,116,117,118,119,120,176,177,178,179,180,236,237,238,239,240};
+            for(int i =0; i<slotIdRange.length; i++){
+                if (isOpen == 1) {
+                    Statement st1 = connection.createStatement();
+                    String query1 = "UPDATE MECHANICSCHEDULE SET AVAILABLE = 'AVAILABLE' WHERE SC_ID=" + user.getSc_id() + " AND SLOT_ID=" + slotIdRange[i];
+                    st1.executeQuery(query1);
+                } else {
+                    Statement st2 = connection.createStatement();
+                    String query2 = "UPDATE MECHANICSCHEDULE SET AVAILABLE = 'CLOSED' WHERE SC_ID=" + user.getSc_id()+ " AND SLOT_ID=" + slotIdRange[i];
+                    st2.executeQuery(query2);
+                }
+            }
             return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 
@@ -117,7 +187,8 @@ public class ManagerDAO {
             ConnectionDB.closeConnection(connection);
             return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 
@@ -135,7 +206,8 @@ public class ManagerDAO {
             ConnectionDB.closeConnection(connection);
             return carServices;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return new ArrayList<CarService>();
         }
     }
 
@@ -166,7 +238,23 @@ public class ManagerDAO {
             ConnectionDB.closeConnection(connection);
             return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
+        }
+    }
+
+    public static String setHourlyRate(User user, Integer hourlyRate) {
+        try {
+            Connection connection = ConnectionDB.getConnection();
+
+            Statement st = connection.createStatement();
+            String query = "UPDATE SERVICECENTER SET HOURLY_WAGE=" + hourlyRate + " WHERE SC_ID=" + user.getSc_id();
+            st.executeUpdate(query);
+            ConnectionDB.closeConnection(connection);
+            return "Success";
+        } catch (SQLException e) {
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 }

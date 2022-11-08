@@ -7,7 +7,7 @@ public class PendingCustomers {
     String custFirstName;
     String custLastName;
     Integer se_id;
-    String serviceDate;
+    Integer serviceDate;
     Integer amountCharged;
 
     public Long getCust_id() {
@@ -42,11 +42,11 @@ public class PendingCustomers {
         this.se_id = se_id;
     }
 
-    public String getServiceDate() {
+    public Integer getServiceDate() {
         return serviceDate;
     }
 
-    public void setServiceDate(String serviceDate) {
+    public void setServiceDate(Integer serviceDate) {
         this.serviceDate = serviceDate;
     }
 
@@ -58,7 +58,7 @@ public class PendingCustomers {
         this.amountCharged = amountCharged;
     }
 
-    public PendingCustomers(Long cust_id, String custFirstName, String custLastName, Integer se_id, String serviceDate, Integer amountCharged) {
+    public PendingCustomers(Long cust_id, String custFirstName, String custLastName, Integer se_id, Integer serviceDate, Integer amountCharged) {
         this.cust_id = cust_id;
         this.custFirstName = custFirstName;
         this.custLastName = custLastName;
