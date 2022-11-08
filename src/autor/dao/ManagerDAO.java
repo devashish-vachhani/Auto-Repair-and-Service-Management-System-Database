@@ -141,6 +141,18 @@ public class ManagerDAO {
                 }
             }
             ConnectionDB.closeConnection(connection);
+            Integer[] slotIdRange = new Integer[]{56,57,58,59,60,116,117,118,119,120,176,177,178,179,180,236,237,238,239,240};
+            for(int i =0; i<slotIdRange.length; i++){
+                if (isOpen == 1) {
+                    Statement st1 = connection.createStatement();
+                    String query1 = "UPDATE MECHANICSCHEDULE SET AVAILABLE = 'AVAILABLE' WHERE SC_ID=" + user.getSc_id() + " AND SLOT_ID=" + slotIdRange[i];
+                    st1.executeQuery(query1);
+                } else {
+                    Statement st2 = connection.createStatement();
+                    String query2 = "UPDATE MECHANICSCHEDULE SET AVAILABLE = 'CLOSED' WHERE SC_ID=" + user.getSc_id()+ " AND SLOT_ID=" + slotIdRange[i];
+                    st2.executeQuery(query2);
+                }
+            }
             return "Success";
         } catch (SQLException e) {
             System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
