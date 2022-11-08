@@ -15,6 +15,11 @@ public class CarService {
 
     }
 
+    public CarService(Integer SId, String name) {
+        this.SId = SId;
+        this.Name = name;
+    }
+
     public Integer getSId() {
         return SId;
     }
