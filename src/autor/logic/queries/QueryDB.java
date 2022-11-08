@@ -25,56 +25,55 @@ public class QueryDB {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
+                        flag = false;
                         System.out.println("Which service center has the most number of customers");
                         System.out.print("OUTPUT: ");
                         Integer output = QueryDAO.query1Output();
                         System.out.println(output);
-                        flag = false;
                     }
                     case 2 -> {
+                        flag = false;
                         System.out.println("What is the average price of an Evaporator Repair for Hondas across all service centers");
                         System.out.print("OUTPUT: ");
                         Float output = QueryDAO.query2Output();
                         System.out.println(output);
-                        flag = false;
                     }
                     case 3 -> {
+                        flag = false;
                         System.out.println("Which customer(s) have unpaid invoices in Service Center 30003");
                         System.out.println("OUTPUT:");
                         //
-
-                        flag = false;
                     }
                     case 4 -> {
+                        flag = false;
                         System.out.println("List all services that are listed as both maintenance and repair services globally");
                         System.out.println("OUTPUT:");
                         //
-
-                        flag = false;
                     }
                     case 5 -> {
+                        flag = false;
                         System.out.println("What is the difference between the cost of doing a belt replacement + schedule A\n" +
                                 "on a Toyota at center 30001 vs 30002?");
                         System.out.print("OUTPUT: ");
                         Integer output = QueryDAO.query5Output();
                         System.out.println(output);
-                        flag = false;
                     }
                     case 6 -> {
+                        flag = false;
                         System.out.println("What is the next eligible maintenance schedule service for the car with VIN\n" +
                                 "34KLE19D?");
                         System.out.println("OUTPUT:");
                         //
-                        flag = false;
                     }
                     case 7 -> {
-                        Landing.homeMenu();
                         flag = false;
+                        Landing.homeMenu();
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input. Try Again!");
+                displayMenu();
             }
         }
     }

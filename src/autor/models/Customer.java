@@ -11,16 +11,11 @@ public class Customer {
     public Boolean Standing;
     public Boolean Status;
 
-    public Customer(Integer scId, Long userId, String FName, String LName, String address, String email, Long phoneNo, Boolean standing, Boolean status) {
+    public Customer(Integer scId, Long userId, String FName, String LName) {
         this.ScId = scId;
         this.UserId = userId;
         this.FName = FName;
         this.LName = LName;
-        this.Address = address;
-        this.Email = email;
-        this.PhoneNo = phoneNo;
-        this.Standing = standing;
-        this.Status = status;
     }
 
     public Customer(Long userId, String FName, String LName, String address, String email, Long phoneNo) {

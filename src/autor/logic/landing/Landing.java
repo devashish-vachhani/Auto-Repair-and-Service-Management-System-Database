@@ -1,6 +1,7 @@
 package logic.landing;
 
 import logic.authentication.Authentication;
+import logic.queries.QueryDB;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,16 +21,18 @@ public class Landing {
                     String choice = reader.readLine();
                     switch (Integer.parseInt(choice)) {
                         case 1 -> {
-                            Authentication.loginMenu();
                             flag = false;
+                            Authentication.loginMenu();
                         }
                         case 2 -> {
                             // TODO
+                            flag = false;
+                            QueryDB.displayMenu();
                         }
                         case 3 -> {
+                            flag = false;
                             System.out.println("AUTOR terminated");
                             System.exit(0);
-                            flag = false;
                         }
                         default -> System.out.println("try again");
                     }
