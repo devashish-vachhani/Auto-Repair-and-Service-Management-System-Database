@@ -1,8 +1,7 @@
 package logic.authentication;
 
 import dao.UserDAO;
-import logic.Customer.CustomerUI;
-import dao.UserDAO;
+import logic.customer.CustomerUI;
 import logic.admin.Admin;
 import logic.landing.Landing;
 import logic.manager.Manager;
@@ -70,8 +69,8 @@ public class Authentication {
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
                 Mechanic.mechanicMenu(user);
             } else {
-                System.out.println("UserID:" + user.getUserId() + " " + "Role:" + user.getRole());
-                CustomerUI.customerUI(reader, user.getUserId(), user.getScId());
+                System.out.println("UserID:" + user.getUserid() + " " + "Role:" + user.getRole());
+                CustomerUI.customerUI(reader, user.getUserid(), user.getSc_id());
             }
         } else {
             System.out.println("Invalid username/password. Try logging in again");

@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="merged with origin/main">
-      <change afterPath="$PROJECT_DIR$/src/autor/models/AvailableMechanicsAndSlots.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/AvailableSwapRequests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/BookedMechanic.java" afterDir="false" />
+    <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="merged w devashish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/ReceptionistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ReceptionistDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/Customer/CustomerUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/Customer/CustomerUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/landing/Landing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/landing/Landing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/customer/customer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/logic/mechanic/mechanic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/mechanic/mechanic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/models/PendingCustomers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/models/PendingCustomers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/models/MechanicSchedule.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/ReceptionistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ReceptionistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/Customer/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/Customer/CustomerUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/landing/Landing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/landing/Landing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/manager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/manager/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/mechanic/Mechanic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/mechanic/Mechanic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/receptionist/Receptionist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/receptionist/Receptionist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/models/PendingCustomers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/PendingCustomers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/createTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/Users.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,28 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect": [
-      "Oracle"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect&quot;: [
+      &quot;Oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />

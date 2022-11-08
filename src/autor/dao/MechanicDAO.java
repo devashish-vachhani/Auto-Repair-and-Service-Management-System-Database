@@ -126,8 +126,8 @@ public class MechanicDAO {
             if(count < 3){
                 return "These slots are not available for time off";
             }
-
-            return sendRequestTimeOffUpdateQuery(user, inputSlotId);
+            String s = sendRequestTimeOffUpdateQuery(user, inputSlotId);
+            return s;
         } catch (SQLException e) {
             System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
             return "Failed";

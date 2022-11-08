@@ -128,7 +128,6 @@ public class ManagerDAO {
             Statement st = connection.createStatement();
             String query = "UPDATE SERVICECENTER SET OPEN_SAT=" + isOpen + " WHERE SC_ID=" + user.getSc_id();
             st.executeUpdate(query);
-            ConnectionDB.closeConnection(connection);
             Integer[] slotIdRange = new Integer[]{56,57,58,59,60,116,117,118,119,120,176,177,178,179,180,236,237,238,239,240};
             for(int i =0; i<slotIdRange.length; i++){
                 if (isOpen == 1) {
@@ -141,6 +140,7 @@ public class ManagerDAO {
                     st2.executeQuery(query2);
                 }
             }
+            ConnectionDB.closeConnection(connection);
             return "Success";
         } catch (SQLException e) {
             System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());

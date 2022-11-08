@@ -1,4 +1,4 @@
-package logic.Customer;
+package logic.customer;
 
 import dao.*;
 import logic.landing.Landing;
