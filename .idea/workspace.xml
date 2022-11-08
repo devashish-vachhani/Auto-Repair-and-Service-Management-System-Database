@@ -2,14 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="merged with origin/main">
+      <change afterPath="$PROJECT_DIR$/src/autor/models/AvailableMechanicsAndSlots.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/AvailableSwapRequests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/BookedMechanic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/ReceptionistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ReceptionistDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/manager/manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/mechanic/mechanic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/mechanic/mechanic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/receptionist/receptionist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/models/PendingCustomers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/models/PendingCustomers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/ReceptionistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ReceptionistDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/customer/customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/landing/Landing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/landing/Landing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/logic/manager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/manager/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/mechanic/Mechanic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/mechanic/Mechanic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/receptionist/Receptionist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/receptionist/Receptionist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/PendingCustomers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/PendingCustomers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/createTables.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -32,6 +50,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2H0ZoLGC5CRqzIbO1nattG0zfWe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -92,7 +113,7 @@
       <updated>1667424135622</updated>
       <workItem from="1667424140122" duration="50000000" />
       <workItem from="1667675528286" duration="2163000" />
-      <workItem from="1667683076141" duration="46221000" />
+      <workItem from="1667683076141" duration="91563000" />
     </task>
     <task id="LOCAL-00001" summary="merged with origin/main">
       <created>1667533178377</created>

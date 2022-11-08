@@ -23,31 +23,33 @@ public class Receptionist {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        inputAddCustomerDetails(user);
                         flag = false;
+                        inputAddCustomerDetails(user);
                     }
                     case 2 -> {
-                        findCustomerPendingInvoice(user);
                         flag = false;
+                        findCustomerPendingInvoice(user);
                     }
                     case 3 -> {
-                        Landing.homeMenu();
                         flag = false;
+                        Landing.homeMenu();
                     }
                     default -> System.out.println("try again");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                receptionistMenu(user);
             }
         }
     }
 
-    private static void findCustomerPendingInvoice(User user) {
+    private static void findCustomerPendingInvoice(User user) throws IOException {
         ArrayList<PendingCustomers> list = ReceptionistDAO.viewPendingCustomers(user);
         System.out.println("********Pending Customers*********");
         for(int i=0; i<list.size(); i++){
             System.out.println("CUSTOMER ID = " + list.get(i).getCust_id() + " CUSTOMER'S FIRST NAME = " + list.get(i).getCustFirstName() + " CUSTOMER'S LAST NAME = " + list.get(i).getCustLastName() + " SERVICE EVENT ID = " + list.get(i).getSe_id() + " SERVICE DATE = " + list.get(i).getServiceDate() + " AMOUNT CHARGED = " + list.get(i).getAmountCharged());
         }
+        addCustomerMenu(user);
     }
 
     private static void inputAddCustomerDetails(User user) throws IOException {
@@ -82,8 +84,8 @@ public class Receptionist {
             String s = ReceptionistDAO.addCustomer(user, custId, custUsername, custFirstName, custLastName, custAddress, role, custEmail, custPhoneNumber, vin, brand, mileage, year, status, standing);
             System.out.println(s);
             addCustomerMenu(user);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Wrong Input, try again!!");
             inputAddCustomerDetails(user);
         }
     }
@@ -95,14 +97,15 @@ public class Receptionist {
             try {
                 String choice = readerNew.readLine();
                 if (Integer.parseInt(choice) == 1) {
-                    receptionistMenu(user);
                     flag = false;
+                    receptionistMenu(user);
                 }
-                else {
-                    System.out.println("try again");
+                else{
+                    System.out.println("Wrong Input, try again!!");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Wrong Input, try again!!");
+                addCustomerMenu(user);
             }
         }
     }

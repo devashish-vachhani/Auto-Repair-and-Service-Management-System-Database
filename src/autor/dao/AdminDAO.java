@@ -1,6 +1,7 @@
 package dao;
 
 import config.ConnectionDB;
+import logic.admin.Admin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,9 +77,10 @@ public class AdminDAO {
             Integer res4 = pst4.executeUpdate();
 
             ConnectionDB.closeConnection(connection);
-            return "Sucess";
+            return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 
@@ -135,9 +137,10 @@ public class AdminDAO {
             Integer res8 = pst8.executeUpdate();
 
             ConnectionDB.closeConnection(connection);
-            return "Sucess";
+            return "Success";
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
+            return "Failed";
         }
     }
 }
