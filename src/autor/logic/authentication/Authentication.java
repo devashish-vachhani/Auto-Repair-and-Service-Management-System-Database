@@ -1,6 +1,8 @@
 package logic.authentication;
 
 import dao.UserDAO;
+import logic.Customer.CustomerUI;
+import dao.UserDAO;
 import logic.admin.Admin;
 import logic.landing.Landing;
 import logic.manager.Manager;
@@ -52,7 +54,6 @@ public class Authentication {
         System.out.println("Enter password");
 //        Console console = System.console();
         String password = reader.readLine();
-        System.out.println("Credentials are:" + " " + username + " " + password);
         User user = UserDAO.verifyUser(username, password);
         if(user != null){
             //redirect switch case
@@ -69,7 +70,8 @@ public class Authentication {
                 System.out.println("From table:" + " " + user.getUserid() + " " + user.getUsername() + " " + user.getRole());
                 Mechanic.mechanicMenu(user);
             } else {
-                //redirect to customer
+                System.out.println("UserID:" + user.getUserId() + " " + "Role:" + user.getRole());
+                CustomerUI.customerUI(reader, user.getUserId(), user.getScId());
             }
         } else {
             System.out.println("Invalid username/password. Try logging in again");

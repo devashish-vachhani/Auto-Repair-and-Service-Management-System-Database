@@ -11,6 +11,10 @@ public class CarService {
         this.Type = type;
     }
 
+    public CarService() {
+
+    }
+
     public Integer getSId() {
         return SId;
     }
