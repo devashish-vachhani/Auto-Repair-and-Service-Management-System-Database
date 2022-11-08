@@ -3,7 +3,7 @@ package logic.authentication;
 import dao.UserDAO;
 import logic.Customer.CustomerUI;
 import logic.landing.Landing;
-import models.User;
+import models.Users;
 import models.UserRoleEnum;
 
 import java.io.BufferedReader;
@@ -44,23 +44,23 @@ public class Authentication {
         String username = reader.readLine();
         System.out.println("Enter password");
         String password = reader.readLine();
-        User user = UserDAO.verifyUser(username, password);
+        Users user = UserDAO.verifyUser(username, password);
         if(user != null){
             //redirect switch case
             if(user.getRole() == UserRoleEnum.ADMIN){
                 //redirect to admin
                 //Added print statements just to verify if getting values from DB. Need to call adminMenu
-                System.out.println("From table:" + " " + user.getUid() + " " + user.getRole());
+                System.out.println("From table:" + " " + user.getUserId() + " " + user.getRole());
             } else if(user.getRole() == UserRoleEnum.MANAGER){
                 //redirect to manager
-                System.out.println("From table:" + " " + user.getUid() + " " + user.getRole());
+                System.out.println("From table:" + " " + user.getUserId() + " " + user.getRole());
             } else if(user.getRole() == UserRoleEnum.RECEPTIONIST){
                 //redirect to receptionist
             } else if(user.getRole() == UserRoleEnum.MECHANIC){
                 //redirect to receptionist
             } else {
-                System.out.println("UserID:" + user.getUid() + " " + "Role:" + user.getRole());
-                CustomerUI.customerUI(reader);
+                System.out.println("UserID:" + user.getUserId() + " " + "Role:" + user.getRole());
+                CustomerUI.customerUI(reader, user.getUserId(), user.getScId());
             }
         } else {
             System.out.println("Invalid username/password. Try logging in again");

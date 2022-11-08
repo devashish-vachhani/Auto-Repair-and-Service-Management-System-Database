@@ -1,29 +1,108 @@
 package models;
 
 public class Customer {
-    public Integer CustomerId;
-    public String FullName;
-    public Integer ServiceCenter;
-    public Boolean Status;
+    public Integer ScId;
+    public Long UserId;
+    public String FName;
+    public String LName;
+    public String Address;
+    public String Email;
+    public Long PhoneNo;
     public Boolean Standing;
+    public Boolean Status;
 
-    public Customer(Integer CustomerId, String FullName, Integer ServiceCenter, Boolean Status, Boolean Standing)
-    {
-        this.CustomerId = CustomerId;
-        this.FullName = FullName;
-        this.ServiceCenter = ServiceCenter;
-        this.Status = Status;
-        this.Standing = Standing;
+    public Customer(Integer scId, Long userId, String FName, String LName, String address, String email, Long phoneNo, Boolean standing, Boolean status) {
+        this.ScId = scId;
+        this.UserId = userId;
+        this.FName = FName;
+        this.LName = LName;
+        this.Address = address;
+        this.Email = email;
+        this.PhoneNo = phoneNo;
+        this.Standing = standing;
+        this.Status = status;
     }
-    public Integer getCustomerID() { return this.CustomerId; }
-    public String getFullName() { return this.FullName; }
-    public Integer getServiceCenter() { return this.ServiceCenter; }
-    public Boolean getStatus() { return this.Status; }
-    public Boolean getStanding() { return this.Standing; }
 
-    public void setCustomerID( Integer CustomerId) {  this.CustomerId =  CustomerId;}
-    public void setServiceCenter(Integer ServiceCenter) {  this.ServiceCenter =  ServiceCenter;}
-    public void setFullName(String FullName) {  this.FullName = FullName; }
-    public void setStatus(Boolean Status) { this.Status = Status; }
-    public void setStanding(Boolean Standing) { this.Standing = Standing; }
+    public Customer(Long userId, String FName, String LName, String address, String email, Long phoneNo) {
+        this.UserId = userId;
+        this.FName = FName;
+        this.LName = LName;
+        this.Address = address;
+        this.Email = email;
+        this.PhoneNo = phoneNo;
+    }
+
+    public Integer getScId() {
+        return ScId;
+    }
+
+    public void setScId(Integer scId) {
+        ScId = scId;
+    }
+
+    public Long getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(Long userId) {
+        UserId = userId;
+    }
+
+    public String getFName() {
+        return FName;
+    }
+
+    public void setFName(String FName) {
+        this.FName = FName;
+    }
+
+    public String getLName() {
+        return LName;
+    }
+
+    public void setLName(String LName) {
+        this.LName = LName;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public Long getPhoneNo() {
+        return PhoneNo;
+    }
+
+    public void setPhoneNo(Long phoneNo) {
+        PhoneNo = phoneNo;
+    }
+
+    public Boolean getStanding() {
+        return Standing;
+    }
+
+    public void setStanding(Boolean standing) {
+        Standing = standing;
+    }
+
+    public Boolean getStatus() {
+        return Status;
+    }
+
+    public void setStatus(Boolean status) {
+        Status = status;
+    }
 }
+
+
