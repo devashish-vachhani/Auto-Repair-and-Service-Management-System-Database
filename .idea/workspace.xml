@@ -2,37 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/config/ConnectionDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/dao/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/logic/landing/Landing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/autor/models/EmployeeRoleEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/AmountChargedDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/CarServiceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/CarServiceRepair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/InvoiceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleSlotsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/OfferedPriceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/ScheduleServiceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/ServiceEventDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/ServiceEventDetailsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/dao/ServiceHistoryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/BrandEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/CarService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/Invoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/MechanicScheduleSlots.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/OfferedPrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/Repair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/ServiceEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/ServiceHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/Slots.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/models/TypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/autor/sql/triggers.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/config/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/config/ConnectionConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/adminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/models/serviceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/ServiceCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/src.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/Customer/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/Customer/CustomerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/models/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/autor/logic/landing/Landing.java" root0="SKIP_INSPECTION" />
@@ -48,25 +75,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.database.main"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -100,6 +117,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
