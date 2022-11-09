@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="merged with origin/kalgee">
-      <change beforePath="$PROJECT_DIR$/src/autor/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/models/Customer.java" afterDir="false" />
+    <list default="true" id="316d4363-5950-4e90-9c90-b7423cbacdcc" name="Changes" comment="fixed merge conflicts">
+      <change afterPath="$PROJECT_DIR$/src/autor/sql/dropTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/AmountChargedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/AmountChargedDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/CarServiceRepair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/CarServiceRepair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/QueryDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/QueryDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/VehicleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/VehicleDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/queries/QueryDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/queries/QueryDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/config/ConnectionConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/config/ConnectionConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/AmountChargedDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AmountChargedDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/CarServiceRepair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/CarServiceRepair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/QueryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/QueryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/queries/QueryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/queries/QueryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/createTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/triggers.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,28 +65,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "/Users/rishabh/Desktop/AUTOR/src/autor/sql",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect&quot;: [
-      &quot;Oracle&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect": [
+      "Oracle"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/autor/sql" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />

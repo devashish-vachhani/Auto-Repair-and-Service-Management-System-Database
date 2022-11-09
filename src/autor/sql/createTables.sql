@@ -1,22 +1,23 @@
 CREATE TABLE "RSHUKLA3"."SERVICECENTER"
 (	"SC_ID" NUMBER(5,0) NOT NULL ENABLE,
-     "ADDRESS" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+     "ADDRESS" VARCHAR2(100 BYTE) NOT NULL ENABLE,
      "TELEPHONE_NO" NUMBER(20,0) NOT NULL ENABLE,
-     "STATE" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+     "STATE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
      "OPEN_SAT" NUMBER(1,0) DEFAULT 0 NOT NULL ENABLE,
      "MIN_WAGE" NUMBER NOT NULL ENABLE,
      "MAX_WAGE" NUMBER NOT NULL ENABLE,
      "HOURLY_WAGE" NUMBER NOT NULL ENABLE,
      CONSTRAINT "SERVICECENTER_PK" PRIMARY KEY ("SC_ID") ENABLE,
-     CONSTRAINT "SERVICECENTER_CHECK_HOURLY_WAGE" CHECK (HOURLY_WAGE BETWEEN MIN_WAGE AND MAX_WAGE) ENABLE
+     CONSTRAINT "SERVICECENTER_CHECK_HOURLY_WAGE" CHECK (HOURLY_WAGE BETWEEN MIN_WAGE AND MAX_WAGE) ENABLE,
+     CONSTRAINT "CHECK_OPEN_SAT_VALID" CHECK (OPEN_SAT in (0, 1)) ENABLE
 );
 
 CREATE TABLE "RSHUKLA3"."USERS"
 (	"USER_ID" NUMBER(9,0) NOT NULL ENABLE,
      "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
-     "USERNAME" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-     "PASSWORD" VARCHAR2(20 BYTE) DEFAULT 123456789 NOT NULL ENABLE,
-     "ROLE" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+     "USERNAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+     "PASSWORD" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+     "ROLE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
      CONSTRAINT "USERS_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
      CONSTRAINT "USERS_UNIQUE_USERNAME" UNIQUE ("USERNAME") ENABLE,
      CONSTRAINT "USERS_CHECK_ROLE" CHECK (ROLE IN ('ADMIN','RECEPTIONIST','MANAGER','MECHANIC','CUSTOMER')) ENABLE,
@@ -26,11 +27,11 @@ CREATE TABLE "RSHUKLA3"."USERS"
 
 CREATE TABLE "RSHUKLA3"."EMPLOYEE" (
                                        "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
-                                       "NAME" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-                                       "ADDRESS" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-                                       "EMAIL" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                       "NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+                                       "ADDRESS" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+                                       "EMAIL" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                        "PHONE_NO" NUMBER NOT NULL ENABLE,
-                                       "ROLE" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                       "ROLE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                        "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                        CONSTRAINT "EMP_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
                                        CONSTRAINT "EMP_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
@@ -77,16 +78,16 @@ CREATE TABLE "RSHUKLA3"."MECHANIC" (
 
 CREATE TABLE "RSHUKLA3"."CARSERVICE" (
                                          "S_ID" NUMBER(9,0) NOT NULL ENABLE,
-                                         "NAME" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-                                         "TYPE" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                         "NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+                                         "TYPE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                          CONSTRAINT "CARSERVICE_PK" PRIMARY KEY ("S_ID") ENABLE,
                                          CONSTRAINT "CARSERVICE_UNIQUE_NAME" UNIQUE ("NAME") ENABLE,
-                                         CONSTRAINT "CARSERVICE_CHECK_TYPE" CHECK (TYPE IN ('MAINTENANCE','REPAIR','MAINTENANCEREPAIR')) ENABLE
+                                         CONSTRAINT "CARSERVICE_CHECK_TYPE" CHECK (TYPE IN ('M','R','MR')) ENABLE
 );
 
 CREATE TABLE "RSHUKLA3"."MAINTAINANCE" (
                                            "S_ID" NUMBER(9,0) NOT NULL ENABLE,
-                                           "BUNDLE" VARCHAR2(1 BYTE) NOT NULL ENABLE,
+                                           "BUNDLE" VARCHAR2(100BYTE) NOT NULL ENABLE,
                                            CONSTRAINT "MAINTAINANCEPK" PRIMARY KEY ("S_ID") ENABLE,
                                            CONSTRAINT "MAINTAINANCE_FK_S_ID" FOREIGN KEY ("S_ID")
                                                REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
@@ -95,16 +96,17 @@ CREATE TABLE "RSHUKLA3"."MAINTAINANCE" (
 
 CREATE TABLE "RSHUKLA3"."REPAIR" (
                                      "S_ID" NUMBER(9,0) NOT NULL ENABLE,
-                                     "CATEGORY" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                     "CATEGORY" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                      CONSTRAINT "REPAIR_PK" PRIMARY KEY ("S_ID") ENABLE,
                                      CONSTRAINT "REPAIR_FK_S_ID" FOREIGN KEY ("S_ID")
-                                         REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE
+                                         REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
+                                     CONSTRAINT "CHECK_CATEGORY" CHECK ( CATEGORY IN ('ENGINESERVICES', 'EXHAUSTSERVICES' , 'ELECTRICALSERVICES', 'TRANSMISSIONSERVICES', 'TIRESERVICES', 'HEATINGANDACSERVICES')) ENABLE
 );
 
 CREATE TABLE "RSHUKLA3"."OFFEREDPRICE" (
                                            "S_ID" NUMBER(9,0) NOT NULL ENABLE,
                                            "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
-                                           "BRAND" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                           "BRAND" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                            "PRICE" NUMBER NOT NULL ENABLE,
                                            CONSTRAINT "OFFEREDPRICE_PK" PRIMARY KEY ("S_ID", "SC_ID" ,"BRAND") ENABLE,
                                            CONSTRAINT "OFFEREDPRICE_CHECK_BRAND" CHECK (BRAND IN ('HONDA','NISSAN','TOYOTA','LEXUS','INFINITI')) ENABLE,
@@ -116,7 +118,7 @@ CREATE TABLE "RSHUKLA3"."OFFEREDPRICE" (
 
 CREATE TABLE "RSHUKLA3"."OFFEREDTIME" (
                                           "S_ID" NUMBER(9,0) NOT NULL ENABLE,
-                                          "BRAND" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                          "BRAND" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                           "HRS" NUMBER NOT NULL ENABLE,
                                           CONSTRAINT "OFFEREDTIME_PK" PRIMARY KEY ("S_ID", "BRAND") ENABLE,
                                           CONSTRAINT "OFFEREDTIME_CHECK_BRAND" CHECK (BRAND IN ('HONDA','NISSAN','TOYOTA','LEXUS','INFINITI')) ENABLE,
@@ -127,10 +129,10 @@ CREATE TABLE "RSHUKLA3"."OFFEREDTIME" (
 CREATE TABLE "RSHUKLA3"."CUSTOMER" (
                                        "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                        "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
-                                       "F_NAME" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-                                       "L_NAME" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-                                       "ADDRESS" VARCHAR2(20 BYTE) NOT NULL ENABLE,
-                                       "EMAIL" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                       "F_NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+                                       "L_NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+                                       "ADDRESS" VARCHAR2(100 BYTE) NOT NULL ENABLE,
+                                       "EMAIL" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                        "PHONE_NO" NUMBER NOT NULL ENABLE,
                                        "STANDING" NUMBER(1,0) NOT NULL ENABLE,
                                        "STATUS" NUMBER(1,0) NOT NULL ENABLE,
@@ -141,13 +143,13 @@ CREATE TABLE "RSHUKLA3"."CUSTOMER" (
 );
 
 CREATE TABLE "RSHUKLA3"."VEHICLE" (
-                                      "VIN" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                      "VIN" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                       "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                       "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
-                                      "BRAND" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                      "BRAND" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                       "MILEAGE" NUMBER NOT NULL ENABLE,
                                       "YEAR" NUMBER NOT NULL ENABLE,
-                                      "LAST_SERVICE" VARCHAR(1 BYTE) DEFAULT '0' NOT NULL ENABLE,
+                                      "LAST_SERVICE" VARCHAR2(100 BYTE) DEFAULT 'O' NOT NULL ENABLE,
                                       CONSTRAINT "VEHICLE_PK" PRIMARY KEY ("VIN") ENABLE,
                                       CONSTRAINT "VEHICLE_CHECK_BRAND" CHECK (BRAND IN ('HONDA','NISSAN','TOYOTA','LEXUS','INFINITI')) ENABLE,
                                       CONSTRAINT "VEHICLE_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
@@ -156,14 +158,15 @@ CREATE TABLE "RSHUKLA3"."VEHICLE" (
 
 CREATE TABLE "RSHUKLA3"."SERVICEEVENT" (
                                            "SE_ID" NUMBER(5,0) NOT NULL ENABLE,
-                                           "VIN" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+                                           "VIN" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                            "MECH_ID" NUMBER(9,0) NOT NULL ENABLE,
                                            "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                            "CUST_ID" NUMBER(9,0) NOT NULL ENABLE,
                                            "AMOUNT_PAID" NUMBER DEFAULT 0 NOT NULL ENABLE,
                                            "AMOUNT_CHARGED" NUMBER NOT NULL ENABLE,
                                            "SERVICE_DATE" NUMBER NOT NULL ENABLE,
-                                           "STATUS" VARCHAR2(20 BYTE) DEFAULT 'UNPAID' NOT NULL ENABLE,
+                                           "STATUS" VARCHAR2(100 BYTE) DEFAULT 'UNPAID' NOT NULL ENABLE,
+                                           "TOTAL_HOURS" NUMBER(2,0) NOT NULL ENABLE,
                                            CONSTRAINT "SERVICEEVENT_PK" PRIMARY KEY ("SE_ID") ENABLE,
                                            CONSTRAINT "SERVICEEVENT_FK_VIN" FOREIGN KEY ("VIN")
                                                REFERENCES "RSHUKLA3"."VEHICLE" ("VIN") ON DELETE CASCADE ENABLE,
@@ -202,7 +205,7 @@ CREATE TABLE "RSHUKLA3"."MECHANICSCHEDULE"
     "MECH_ID" NUMBER(9,0) NOT NULL ENABLE,
     "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
     "SLOT_ID" NUMBER(5,0) NOT NULL ENABLE,
-    "AVAILABLE" VARCHAR2(20 BYTE) NOT NULL ENABLE,
+    "AVAILABLE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
     CONSTRAINT "MECHANICSCHEDULE_PK" PRIMARY KEY ("MS_ID") ENABLE,
     CONSTRAINT "MECHANICSCHEDULE_FK_MECH_ID_SC_ID" FOREIGN KEY ("MECH_ID","SC_ID")
         REFERENCES "RSHUKLA3"."MECHANIC" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,

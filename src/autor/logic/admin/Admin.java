@@ -56,34 +56,49 @@ public class Admin {
             String serviceType = reader.readLine();
             String serviceBundle = null;
             String serviceCategory = null;
+            String serviceName = null;
+            Integer hondaDuration = null;
+            Integer lexusDuration = null;
+            Integer infinityDuration = null;
+            Integer nissanDuration = null;
+            Integer toyotaDuration = null;
+            System.out.println("Enter Service Name");
+            serviceName = reader.readLine();
             if(serviceType.equals("MR")){
-                System.out.println("Enter Service Category");
+                System.out.println("Enter Service Category (ENGINESERVICES, EXHAUSTSERVICES , ELECTRICALSERVICES, TRANSMISSIONSERVICES, TIRESERVICES, HEATINGANDACSERVICES)");
                 serviceCategory = reader.readLine();
                 System.out.println("Enter Service Bundle (A, B or C)");
                 serviceBundle = reader.readLine();
+                System.out.println("Enter Duration for HONDA");
+                hondaDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for LEXUS");
+                lexusDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for INFINITY");
+                infinityDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for NISSAN");
+                nissanDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for TOYOTA");
+                toyotaDuration = Integer.parseInt(reader.readLine());
             } else if(serviceType.equals("R")) {
-                System.out.println("Enter Service Category (Engine Services, Exhaust Services, Electrical Services, Transmission Services, Tire Services, Heating and AC Services)");
+                System.out.println("Enter Service Category (ENGINESERVICES, EXHAUSTSERVICES , ELECTRICALSERVICES, TRANSMISSIONSERVICES, TIRESERVICES, HEATINGANDACSERVICES)");
                 serviceCategory = reader.readLine();
+                System.out.println("Enter Duration for HONDA");
+                hondaDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for LEXUS");
+                lexusDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for INFINITY");
+                infinityDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for NISSAN");
+                nissanDuration = Integer.parseInt(reader.readLine());
+                System.out.println("Enter Duration for TOYOTA");
+                toyotaDuration = Integer.parseInt(reader.readLine());
             } else if(serviceType.equals("M")) {
-                System.out.println("Enter Service Bundle (A, B or C");
+                System.out.println("Enter Service Bundle (A, B or C)");
                 serviceBundle = reader.readLine();
             } else {
                 System.out.println("Incorrect Service Type Entered! Try Again!");
                 inputServiceData();
             }
-            System.out.println("Enter Service Name");
-            String serviceName = reader.readLine();
-            System.out.println("Enter Duration for HONDA");
-            Integer hondaDuration = Integer.parseInt(reader.readLine());
-            System.out.println("Enter Duration for LEXUS");
-            Integer lexusDuration = Integer.parseInt(reader.readLine());
-            System.out.println("Enter Duration for INFINITY");
-            Integer infinityDuration = Integer.parseInt(reader.readLine());
-            System.out.println("Enter Duration for NISSAN");
-            Integer nissanDuration = Integer.parseInt(reader.readLine());
-            System.out.println("Enter Duration for TOYOTA");
-            Integer toyotaDuration = Integer.parseInt(reader.readLine());
-
             System.out.println("Service data is:" + " " + serviceId + " " + serviceType + " " + serviceBundle  + " " + serviceCategory + " " + serviceName + " " + hondaDuration + " " + lexusDuration + " " + infinityDuration + " " + nissanDuration + " " + toyotaDuration);
 
             addServiceMenu(serviceId, serviceType, serviceBundle, serviceCategory, serviceName, hondaDuration, lexusDuration, infinityDuration, nissanDuration, toyotaDuration);
@@ -190,7 +205,7 @@ public class Admin {
 
     }
 
-    private static void addStoreMenu(Integer serviceCenterId, String address, Long telephone, String state, Integer openSaturdays, Integer mechMaxWage, Integer mechMinWage, Integer mechHourlyWage, String mgrFirstName, String mgrLastName, String mgrUsername, String mgrPassword, Integer mgrSalary, Long mgrId, String mgrEmail, Long mgrPhone) {
+    private static void addStoreMenu(Integer serviceCenterId, String address, Long telephone, String state, Integer openSaturdays, Integer mechMaxWage, Integer mechMinWage, Integer mechHourlyWage, String mgrFirstName, String mgrLastName, String mgrUsername, String mgrAddress, Integer mgrSalary, Long mgrId, String mgrEmail, Long mgrPhone) {
         boolean flag = true;
         while(flag) {
             System.out.println("----Add Store Page----");
@@ -201,7 +216,7 @@ public class Admin {
                 String choice = reader.readLine();
                 switch (Integer.parseInt(choice)) {
                     case 1 -> {
-                        String s = AdminDAO.addStore(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrPassword, mgrSalary, mgrId, mgrEmail, mgrPhone);
+                        String s = AdminDAO.addStore(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrAddress, mgrSalary, mgrId, mgrEmail, mgrPhone);
                         System.out.println(s);
                         flag = false;
                         adminMenu();
@@ -214,7 +229,7 @@ public class Admin {
                 }
             } catch (Exception e) {
                 System.out.println("Invalid Inputs. Try again");
-                addStoreMenu(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrPassword, mgrSalary, mgrId, mgrEmail, mgrPhone);
+                addStoreMenu(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrAddress, mgrSalary, mgrId, mgrEmail, mgrPhone);
             }
         }
     }
@@ -224,7 +239,7 @@ public class Admin {
         try {
             System.out.println("Enter Service Center ID");
             Integer serviceCenterId = Integer.parseInt(reader.readLine());
-            System.out.println("Enter Address");
+            System.out.println("Enter Service Center Address");
             String address = reader.readLine();
             System.out.println("Enter Telephone Number");
             Long telephone =  Long.parseLong(reader.readLine());
@@ -248,14 +263,14 @@ public class Admin {
             Long mgrPhone = Long.parseLong(reader.readLine());
             System.out.println("Enter Manager's Username");
             String mgrUsername = reader.readLine();
-            System.out.println("Enter Manager's Password");
-            String mgrPassword = reader.readLine();
+            System.out.println("Enter Manager's Address");
+            String mgrAddress = reader.readLine();
             System.out.println("Enter Manager's Salary");
             Integer mgrSalary = Integer.parseInt(reader.readLine());
             System.out.println("Enter Manager's Employee ID");
             Long mgrId = Long.parseLong(reader.readLine());
-            System.out.println("Store data is:" + " " + serviceCenterId + " " + address  + " " + telephone + " " + state + " " + openSaturdays + " " + mechMaxWage + " " + mechMinWage  + " " + mechHourlyWage + " " + mgrFirstName + " " +  mgrLastName + " " + mgrUsername + " " +  mgrPassword  + " " + mgrSalary + " " + mgrId);
-            addStoreMenu(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrPassword, mgrSalary, mgrId, mgrEmail, mgrPhone);
+            System.out.println("Store data is:" + " " + serviceCenterId + " " + address  + " " + telephone + " " + state + " " + openSaturdays + " " + mechMaxWage + " " + mechMinWage  + " " + mechHourlyWage + " " + mgrFirstName + " " +  mgrLastName + " " + mgrUsername + " " +  mgrAddress  + " " + mgrSalary + " " + mgrId);
+            addStoreMenu(serviceCenterId, address, telephone, state, openSaturdays, mechMaxWage, mechMinWage, mechHourlyWage, mgrFirstName, mgrLastName, mgrUsername, mgrAddress, mgrSalary, mgrId, mgrEmail, mgrPhone);
         } catch (Exception e) {
             System.out.println("Wrong Input, try again!!");
             inputStoreData();

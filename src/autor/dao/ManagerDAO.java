@@ -61,7 +61,7 @@ public class ManagerDAO {
                     openSat = rs.getInt("OPEN_SAT");
                 }
                 StringBuilder queryForMechSchedule = new StringBuilder("INSERT ALL ");
-                StringBuilder queryForSlots = new StringBuilder("INSERT ALL ");
+//                StringBuilder queryForSlots = new StringBuilder("INSERT ALL ");
                 Integer slot_id = 1;
                 for(int week=1;week<=4;week++){
                     for(int day=1;day<=6;day++){
@@ -72,11 +72,11 @@ public class ManagerDAO {
                                 slot_id++;
                                 if (slot_id != 241){
                                     queryForMechSchedule.append(" \n");
-                                    queryForSlots.append(" \n");
+//                                    queryForSlots.append(" \n");
                                 }
                                 else{
                                     queryForMechSchedule.append("SELECT 1 FROM DUAL");
-                                    queryForSlots.append("SELECT 1 FROM DUAL");
+//                                    queryForSlots.append("SELECT 1 FROM DUAL");
                                 }
                             }
                         }
@@ -92,21 +92,19 @@ public class ManagerDAO {
                                 slot_id++;
                                 if (slot_id != 241){
                                     queryForMechSchedule.append(" \n");
-                                   queryForSlots.append(" \n");
+//                                   queryForSlots.append(" \n");
                                 }
                                 else{
                                     queryForMechSchedule.append("SELECT 1 FROM DUAL");
-                                    queryForSlots.append("SELECT 1 FROM DUAL");
+//                                    queryForSlots.append("SELECT 1 FROM DUAL");
                                 }
                             }
                         }
                     }
                 }
 //                String queryAllSlots = queryForSlots.toString();
-//                System.out.println(queryAllSlots);
 //                st.executeQuery(queryAllSlots);
                 String queryAllInserts = queryForMechSchedule.toString();
-                System.out.println(queryAllInserts);
                 st.executeQuery(queryAllInserts);
             }
             ConnectionDB.closeConnection(connection);
@@ -164,26 +162,74 @@ public class ManagerDAO {
                 s_id = rs.getInt("S_ID");
             }
 
-            Statement st1 = connection.createStatement();
-            String query1 = "UPDATE OFFEREDPRICE SET PRICE=" + hondaPrice + " WHERE BRAND= 'HONDA' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
-            st1.executeUpdate(query1);
+            Statement st6 = connection.createStatement();
+            String query6 = "SELECT COUNT(*) AS COUNT FROM OFFEREDPRICE WHERE S_ID=" + s_id +" AND SC_ID=" + sc_id;
+            ResultSet rs6 = st6.executeQuery(query6);
+            Integer count = null;
+            while (rs6.next()){
+                count = rs6.getInt("COUNT");
+            }
+            if(count != null){
+                if(count > 0){
+                    Statement st1 = connection.createStatement();
+                    String query1 = "UPDATE OFFEREDPRICE SET PRICE=" + hondaPrice + " WHERE BRAND= 'HONDA' AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
+                    st1.executeUpdate(query1);
 
-            Statement st2 = connection.createStatement();
-            String query2 = "UPDATE OFFEREDPRICE SET PRICE=" + lexusPrice + " WHERE BRAND= 'LEXUS'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
-            st2.executeUpdate(query2);
+                    Statement st2 = connection.createStatement();
+                    String query2 = "UPDATE OFFEREDPRICE SET PRICE=" + lexusPrice + " WHERE BRAND= 'LEXUS'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
+                    st2.executeUpdate(query2);
 
-            Statement st3 = connection.createStatement();
-            String query3 = "UPDATE OFFEREDPRICE SET PRICE=" + infinitiPrice + " WHERE BRAND= 'INFINITI'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
-            st3.executeUpdate(query3);
+                    Statement st3 = connection.createStatement();
+                    String query3 = "UPDATE OFFEREDPRICE SET PRICE=" + infinitiPrice + " WHERE BRAND= 'INFINITI'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
+                    st3.executeUpdate(query3);
 
-            Statement st4 = connection.createStatement();
-            String query4 = "UPDATE OFFEREDPRICE SET PRICE=" + nissanPrice + " WHERE BRAND= 'NISSAN'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
-            st4.executeUpdate(query4);
+                    Statement st4 = connection.createStatement();
+                    String query4 = "UPDATE OFFEREDPRICE SET PRICE=" + nissanPrice + " WHERE BRAND= 'NISSAN'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
+                    st4.executeUpdate(query4);
 
-            Statement st5 = connection.createStatement();
-            String query5 = "UPDATE OFFEREDPRICE SET PRICE=" + toyotaPrice + " WHERE BRAND= 'TOYOTA'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
-            st5.executeUpdate(query5);
+                    Statement st5 = connection.createStatement();
+                    String query5 = "UPDATE OFFEREDPRICE SET PRICE=" + toyotaPrice + " WHERE BRAND= 'TOYOTA'AND SC_ID=" + sc_id + " AND S_ID=" + s_id;
+                    st5.executeUpdate(query5);
+                } else {
+                    PreparedStatement st1 = connection.prepareStatement("INSERT INTO OFFEREDPRICE(S_ID, SC_ID, BRAND, PRICE) VALUES(?,?,?,?)");
+                    st1.setInt(1, s_id);
+                    st1.setInt(2, sc_id);
+                    st1.setString(3, "HONDA");
+                    st1.setInt(4, hondaPrice);
+                    st1.executeUpdate();
 
+                    PreparedStatement st2 = connection.prepareStatement("INSERT INTO OFFEREDPRICE(S_ID, SC_ID, BRAND, PRICE) VALUES(?,?,?,?)");
+                    st2.setInt(1, s_id);
+                    st2.setInt(2, sc_id);
+                    st2.setString(3, "TOYOTA");
+                    st2.setInt(4, toyotaPrice);
+                    st2.executeUpdate();
+
+                    PreparedStatement st3 = connection.prepareStatement("INSERT INTO OFFEREDPRICE(S_ID, SC_ID, BRAND, PRICE) VALUES(?,?,?,?)");
+                    st3.setInt(1, s_id);
+                    st3.setInt(2, sc_id);
+                    st3.setString(3, "NISSAN");
+                    st3.setInt(4, nissanPrice);
+                    st3.executeUpdate();
+
+                    PreparedStatement st4 = connection.prepareStatement("INSERT INTO OFFEREDPRICE(S_ID, SC_ID, BRAND, PRICE) VALUES(?,?,?,?)");
+                    st4.setInt(1, s_id);
+                    st4.setInt(2, sc_id);
+                    st4.setString(3, "LEXUS");
+                    st4.setInt(4, lexusPrice);
+                    st4.executeUpdate();
+
+                    PreparedStatement st5 = connection.prepareStatement("INSERT INTO OFFEREDPRICE(S_ID, SC_ID, BRAND, PRICE) VALUES(?,?,?,?)");
+                    st5.setInt(1, s_id);
+                    st5.setInt(2, sc_id);
+                    st5.setString(3, "INFINITI");
+                    st5.setInt(4, infinitiPrice);
+                    st5.executeUpdate();
+                }
+            } else{
+                System.out.println("Error accessing the database!");
+                return "Failed";
+            }
             ConnectionDB.closeConnection(connection);
             return "Success";
         } catch (SQLException e) {

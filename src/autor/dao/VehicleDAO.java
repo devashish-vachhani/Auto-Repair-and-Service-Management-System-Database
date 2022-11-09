@@ -10,7 +10,7 @@ public class VehicleDAO {
     public static void viewVehicles(Long UserId, Integer ScId) {
         try {
             Connection connection = ConnectionDB.getConnection();
-            String query = "Select * from VEHICLE where USER_ID=" + UserId + "AND SC_ID=" + ScId;
+            String query = "Select * from VEHICLE where USER_ID=" + UserId + " AND SC_ID=" + ScId;
             Statement st = connection.createStatement();
             ResultSet rs =  st.executeQuery(query);
             ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -25,7 +25,7 @@ public class VehicleDAO {
             }
             ConnectionDB.closeConnection(connection);
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.println("Caught SQL Exception "+ ex.getErrorCode() + "/" + ex.getSQLState() + "/" + ex.getMessage());
         }
     }
     public static Vehicle viewVehicle(String Vin) {
@@ -41,7 +41,8 @@ public class VehicleDAO {
             ConnectionDB.closeConnection(connection);
             return vehicle;
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.println("Caught SQL Exception "+ ex.getErrorCode() + "/" + ex.getSQLState() + "/" + ex.getMessage());
+            return new Vehicle();
         }
     }
     public static Boolean insertVehicle(String Vin, Long UserId, Integer ScId, String Brand, Long Mileage, Integer Year) {
@@ -59,7 +60,7 @@ public class VehicleDAO {
             st.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("Caught SQL Exception "+ ex.getErrorCode() + "/" + ex.getSQLState() + "/" + ex.getMessage());
             return false;
         }
     }
@@ -73,14 +74,14 @@ public class VehicleDAO {
             ConnectionDB.closeConnection(connection);
             return Boolean.valueOf(true);
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            System.out.println("Caught SQL Exception "+ ex.getErrorCode() + "/" + ex.getSQLState() + "/" + ex.getMessage());
             return Boolean.valueOf(false);
         }
     }
     public static Integer countVehicles(Long UserId, Integer ScId) {
         try {
             Connection connection = ConnectionDB.getConnection();
-            String query = "Select COUNT(*) as COUNT_VEHICLES from VEHICLE where USER_ID=" + UserId + "AND SC_ID=" + ScId;
+            String query = "Select COUNT(*) as COUNT_VEHICLES from VEHICLE where USER_ID=" + UserId + " AND SC_ID=" + ScId;
             Statement st = connection.createStatement();
             ResultSet rs =  st.executeQuery(query);
             Integer count = null;

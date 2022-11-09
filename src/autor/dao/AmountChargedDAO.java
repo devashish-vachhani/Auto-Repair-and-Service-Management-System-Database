@@ -21,7 +21,8 @@ public class AmountChargedDAO {
             ConnectionDB.closeConnection(connection);
             return amountCharged;
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.println("Caught SQL Exception "+ ex.getErrorCode() + "/" + ex.getSQLState() + "/" + ex.getMessage());
+            return null;
         }
     }
 }

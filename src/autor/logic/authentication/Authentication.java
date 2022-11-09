@@ -53,6 +53,7 @@ public class Authentication {
         System.out.println("Enter password");
 //        Console console = System.console();
         String password = reader.readLine();
+
         User user = UserDAO.verifyUser(username, password);
         if(user != null){
             //redirect switch case

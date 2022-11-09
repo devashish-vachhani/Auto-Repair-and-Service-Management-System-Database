@@ -7,10 +7,10 @@ public class ConnectionConstants {
     }
     public static String getUser()
     {
-        return "rshukla3";
+        return "dvachha";
     }
     public static String getPassword()
     {
-        return "200421376";
+        return "abcd1234";
     }
 }

@@ -54,6 +54,8 @@ BEGIN
         END IF;
 END;
 
+create sequence register_auto_inc start with 1;
+
 create or replace trigger register_auto_inc_trig_final
 before insert on MECHANICSCHEDULESWAP
 for each row
@@ -63,7 +65,9 @@ into :new.REGISTER_ID
 from dual;
 end;
 
-create or replace trigger rmechanic_schedule_auto_inc_trig_final
+create sequence mechanic_schedule_auto_inc start with 1;
+
+create or replace trigger mechanic_schedule_auto_inc_trig_final
 before insert on MECHANICSCHEDULE
 for each row
 begin
@@ -71,6 +75,8 @@ select mechanic_schedule_auto_inc.nextval
 into :new.MS_ID
 from dual;
 end;
+
+create sequence slots_auto_inc start with 1;
 
 create or replace trigger slots_auto_inc_trig_final
 before insert on SLOTS

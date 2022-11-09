@@ -22,7 +22,8 @@ public class CarServiceRepair {
             ConnectionDB.closeConnection(connection);
             return names;
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.println("Caught SQL Exception "+ ex.getErrorCode() + "/" + ex.getSQLState() + "/" + ex.getMessage());
+            return new ArrayList<>();
         }
     }
 }

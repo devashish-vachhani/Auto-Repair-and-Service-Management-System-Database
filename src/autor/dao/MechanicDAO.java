@@ -122,11 +122,11 @@ public class MechanicDAO {
             while(rs.next()) {
                 count = rs.getInt("COUNT_EMP");
             }
-            ConnectionDB.closeConnection(connection);
             if(count < 3){
                 return "These slots are not available for time off";
             }
             String s = sendRequestTimeOffUpdateQuery(user, inputSlotId);
+            ConnectionDB.closeConnection(connection);
             return s;
         } catch (SQLException e) {
             System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
@@ -144,10 +144,10 @@ public class MechanicDAO {
             String query = "UPDATE MECHANICSCHEDULE SET AVAILABLE='TIMEOFF' WHERE MECH_ID = " + mech_id + " AND SC_ID = " + sc_id + " AND SLOT_ID = " + inputSlotId;
             Integer res1 = st.executeUpdate(query);
             ConnectionDB.closeConnection(connection);
-            if(res1 == 0){
-                return "Timeoff Allotted Successfully";
-            }
-            return "These slots are not available for time off";
+//            if(res1 == 0){
+//                return "Timeoff Allotted Successfully";
+//            }
+            return "Time off Allotted Successfully";
         } catch (SQLException e) {
             System.out.println("Caught SQL Exception "+ e.getErrorCode() + "/" + e.getSQLState() + "/" + e.getMessage());
             return "Failed";
@@ -159,7 +159,7 @@ public class MechanicDAO {
             Connection connection = ConnectionDB.getConnection();
 
             Statement st = connection.createStatement();
-            String query = "SELECT S.WEEK, S.SLOT_DAY, S.SLOTS, S.SLOT_ID FROM MECHANICSCHEDULE MS, SLOTS S WHERE S.SLOT_ID = MS.SLOT_ID AND MS.MECH_ID=" + mech_id + " AND MS.SC_ID=" + sc_id + " AND MS.AVAILABLE = 'AVAILABLE'";
+            String query = "SELECT S.WEEK, S.SLOT_DAY, S.SLOTS, S.SLOT_ID FROM MECHANICSCHEDULE MS, SLOTS S WHERE S.SLOT_ID = MS.SLOT_ID AND MS.MECH_ID=" + mech_id + " AND MS.SC_ID=" + sc_id + " AND MS.AVAILABLE = 'AVAILABLE' AND S.SLOT_DAY=" + day + " AND S.WEEK=" + week;
             ResultSet rs = st.executeQuery(query);
             ArrayList<AvailableMechanicsAndSlots> availableMechanicsAndSlotsArrayList = new ArrayList<>();
             while(rs.next()){
