@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="316d4363-5950-4e90-9c90-b7423cbacdcc" name="Changes" comment="fixed merge conflicts">
+    <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleSlotsDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleSlotsDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/logic/Customer/CustomerUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/Customer/CustomerUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleSlotsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleSlotsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/logic/Customer/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/customer/CustomerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,29 +45,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/Users/rishabh/Desktop/AUTOR/src/autor/sql",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
-    ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect": [
-      "Oracle"
-    ]
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/autor/sql" />

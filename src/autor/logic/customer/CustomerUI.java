@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class CustomerUI {
     public static void customerUI(BufferedReader reader, Long UserId, Integer ScId) throws NumberFormatException, IOException {
-        String in_1, in_2;
+        String in_1;
         while (true) {
             System.out.println("1.View and Update Profile");
             System.out.println("2.View and Schedule Service");
@@ -32,6 +32,7 @@ public class CustomerUI {
                     break;
                 case 4:
                     Landing.homeMenu();
+                    break;
                 default:
                     System.out.println("Enter a valid choice");
                     break;
@@ -341,6 +342,9 @@ public class CustomerUI {
         ArrayList<MechanicScheduleSlots> mechanicScheduleSlots;
         MechanicScheduleSlots mechanicScheduleSlot;
         Set<Integer> SIds;
+
+        System.out.println("CART:");
+        System.out.println();
         for (String service : cart) {
             System.out.println(service);
         }
@@ -359,7 +363,7 @@ public class CustomerUI {
                     mechanicScheduleSlots = MechanicScheduleSlotsDAO.viewAvailableMechanicSlots(ScId, requiredServiceHours);
                     for(int i=0; i<mechanicScheduleSlots.size(); i++) {
                         mechanicScheduleSlot = mechanicScheduleSlots.get(i);
-                        System.out.println(i+1 + "." + mechanicScheduleSlot.getWeek() + " " + mechanicScheduleSlot.getSlotDay() + " " + mechanicScheduleSlot.getSlotsMin() + " " + mechanicScheduleSlot.getMechId() + " " + mechanicScheduleSlot.getSlotIdMin());
+                        System.out.println(i+1 + ".WEEK: " + mechanicScheduleSlot.getWeek() + " DAY: " + mechanicScheduleSlot.getSlotDay() + " SLOTS_MIN: " + mechanicScheduleSlot.getSlotsMin() + " MECHANIC ID: " + mechanicScheduleSlot.getMechId() + " SLOT_ID_MIN: " + mechanicScheduleSlot.getSlotIdMin());
                     }
                     inputInt = Integer.parseInt(reader.readLine());
                     mechanicScheduleSlot = mechanicScheduleSlots.get(inputInt-1);
@@ -394,7 +398,6 @@ public class CustomerUI {
             ServiceEvent serviceEvent = serviceEvents.get(i);
             System.out.println(i+1 + ".INVOICE ID: " + serviceEvent.getSeId() + " VIN: " + serviceEvent.getVin() + " STATUS: " + serviceEvent.getStatus());
         }
-        System.out.println();
         System.out.println("1.View Invoice Details");
         System.out.println("2.Pay Invoices");
         System.out.println("3.Go Back");
