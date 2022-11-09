@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AUTOR:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AUTOR_jar</output-path>
+    <root id="archive" name="AUTOR.jar">
+      <element id="module-output" name="src" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/ojdbc11.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba03e030-50e3-483d-a856-c725ee7c35a4" name="Changes" comment="">
+    <list default="true" id="86f61baf-65ee-40b6-9936-6cd6c8922526" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleSlotsDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicScheduleSlotsDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/Customer/CustomerUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/Customer/CustomerUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleSlotsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicScheduleSlotsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/Customer/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/customer/CustomerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +36,11 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
