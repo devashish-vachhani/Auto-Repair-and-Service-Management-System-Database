@@ -2,35 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="316d4363-5950-4e90-9c90-b7423cbacdcc" name="Changes" comment="fixed merge conflicts">
-      <change afterPath="$PROJECT_DIR$/src/autor/sql/dropTables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/AdminDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/AmountChargedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/AmountChargedDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/CarServiceRepair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/CarServiceRepair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/ManagerDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/MechanicDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/QueryDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/QueryDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/dao/VehicleDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/dao/VehicleDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/admin/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/authentication/Authentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/logic/queries/QueryDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/logic/queries/QueryDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/config/ConnectionConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/config/ConnectionConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/AmountChargedDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/AmountChargedDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/CarServiceRepair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/CarServiceRepair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/ManagerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/MechanicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/QueryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/QueryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/dao/VehicleDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/authentication/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/logic/queries/QueryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/logic/queries/QueryDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/createTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/autor/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/triggers.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

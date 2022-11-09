@@ -1,31 +1,31 @@
-create or replace TRIGGER MECHANIC_TIMEOFF
-    AFTER UPDATE ON MECHANICSCHEDULE
-FOR EACH ROW
-BEGIN
-    IF :OLD.AVAILABLE <> 'TIMEOFF' AND :NEW.AVAILABLE = 'TIMEOFF' THEN
-        IF :NEW.SLOT_ID BETWEEN 1 AND 60 THEN
-            UPDATE MECHANIC M
-            SET M.HOURS_WORKED_WEEK1 = M.HOURS_WORKED_WEEK1-1
-            WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
-        ELSE
-            IF :NEW.SLOT_ID BETWEEN 61 AND 120 THEN
-                UPDATE MECHANIC M
-                SET M.HOURS_WORKED_WEEK2 = M.HOURS_WORKED_WEEK2-1
-                WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
-            ELSE
-                IF :NEW.SLOT_ID BETWEEN 121 AND 180 THEN
-                        UPDATE MECHANIC M
-                        SET M.HOURS_WORKED_WEEK3 = M.HOURS_WORKED_WEEK3-1
-                        WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
-                ELSE
-                        UPDATE MECHANIC M
-                        SET M.HOURS_WORKED_WEEK4 = M.HOURS_WORKED_WEEK4-1
-                        WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
-                END IF;
-            END IF;
-        END IF;
-END IF;
-END;
+-- create or replace TRIGGER MECHANIC_TIMEOFF
+--     AFTER UPDATE ON MECHANICSCHEDULE
+-- FOR EACH ROW
+-- BEGIN
+--     IF :OLD.AVAILABLE <> 'TIMEOFF' AND :NEW.AVAILABLE = 'TIMEOFF' THEN
+--         IF :NEW.SLOT_ID BETWEEN 1 AND 60 THEN
+--             UPDATE MECHANIC M
+--             SET M.HOURS_WORKED_WEEK1 = M.HOURS_WORKED_WEEK1-1
+--             WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
+--         ELSE
+--             IF :NEW.SLOT_ID BETWEEN 61 AND 120 THEN
+--                 UPDATE MECHANIC M
+--                 SET M.HOURS_WORKED_WEEK2 = M.HOURS_WORKED_WEEK2-1
+--                 WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
+--             ELSE
+--                 IF :NEW.SLOT_ID BETWEEN 121 AND 180 THEN
+--                         UPDATE MECHANIC M
+--                         SET M.HOURS_WORKED_WEEK3 = M.HOURS_WORKED_WEEK3-1
+--                         WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
+--                 ELSE
+--                         UPDATE MECHANIC M
+--                         SET M.HOURS_WORKED_WEEK4 = M.HOURS_WORKED_WEEK4-1
+--                         WHERE M.USER_ID = :NEW.MECH_ID AND M.SC_ID = :NEW.SC_ID;
+--                 END IF;
+--             END IF;
+--         END IF;
+-- END IF;
+-- END;
 
 create or replace TRIGGER MECHANIC_UPDATE_TOTAL_HOURS
     AFTER INSERT ON SERVICEEVENT

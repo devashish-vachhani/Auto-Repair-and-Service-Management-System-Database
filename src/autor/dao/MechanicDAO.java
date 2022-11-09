@@ -159,7 +159,7 @@ public class MechanicDAO {
             Connection connection = ConnectionDB.getConnection();
 
             Statement st = connection.createStatement();
-            String query = "SELECT S.WEEK, S.SLOT_DAY, S.SLOTS, S.SLOT_ID FROM MECHANICSCHEDULE MS, SLOTS S WHERE S.SLOT_ID = MS.SLOT_ID AND MS.MECH_ID=" + mech_id + " AND MS.SC_ID=" + sc_id + " AND MS.AVAILABLE = 'AVAILABLE' AND S.SLOT_DAY=" + day + " AND S.WEEK=" + week;
+            String query = "SELECT S.WEEK, S.SLOT_DAY, S.SLOTS, S.SLOT_ID FROM MECHANICSCHEDULE MS, SLOTS S WHERE S.SLOT_ID = MS.SLOT_ID AND MS.MECH_ID=" + mech_id + " AND MS.SC_ID=" + sc_id + " AND MS.AVAILABLE = 'AVAILABLE' AND S.SLOT_DAY=" + day + " AND S.WEEK=" + week + " ORDER BY S.SLOT_ID ASC";
             ResultSet rs = st.executeQuery(query);
             ArrayList<AvailableMechanicsAndSlots> availableMechanicsAndSlotsArrayList = new ArrayList<>();
             while(rs.next()){
