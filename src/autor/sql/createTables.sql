@@ -1,4 +1,4 @@
-CREATE TABLE "RSHUKLA3"."SERVICECENTER"
+CREATE TABLE "DVACHHA"."SERVICECENTER"
 (	"SC_ID" NUMBER(5,0) NOT NULL ENABLE,
      "ADDRESS" VARCHAR2(100 BYTE) NOT NULL ENABLE,
      "TELEPHONE_NO" NUMBER(20,0) NOT NULL ENABLE,
@@ -12,7 +12,7 @@ CREATE TABLE "RSHUKLA3"."SERVICECENTER"
      CONSTRAINT "CHECK_OPEN_SAT_VALID" CHECK (OPEN_SAT in (0, 1)) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."USERS"
+CREATE TABLE "DVACHHA"."USERS"
 (	"USER_ID" NUMBER(9,0) NOT NULL ENABLE,
      "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
      "USERNAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
@@ -22,10 +22,10 @@ CREATE TABLE "RSHUKLA3"."USERS"
      CONSTRAINT "USERS_UNIQUE_USERNAME" UNIQUE ("USERNAME") ENABLE,
      CONSTRAINT "USERS_CHECK_ROLE" CHECK (ROLE IN ('ADMIN','RECEPTIONIST','MANAGER','MECHANIC','CUSTOMER')) ENABLE,
      CONSTRAINT "USERS_FK_SC_ID" FOREIGN KEY ("SC_ID")
-         REFERENCES "RSHUKLA3"."SERVICECENTER" ("SC_ID") ON DELETE CASCADE ENABLE
+         REFERENCES "DVACHHA"."SERVICECENTER" ("SC_ID") ON DELETE CASCADE ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."EMPLOYEE" (
+CREATE TABLE "DVACHHA"."EMPLOYEE" (
                                        "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                        "NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                        "ADDRESS" VARCHAR2(100 BYTE) NOT NULL ENABLE,
@@ -35,32 +35,32 @@ CREATE TABLE "RSHUKLA3"."EMPLOYEE" (
                                        "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                        CONSTRAINT "EMP_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
                                        CONSTRAINT "EMP_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
-                                           REFERENCES "RSHUKLA3"."USERS" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+                                           REFERENCES "DVACHHA"."USERS" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
                                        CONSTRAINT "EMAIL_UNIQUE" UNIQUE ("EMAIL") ENABLE,
                                        CONSTRAINT "EMP_CHECK_ROLE" CHECK (ROLE IN ('ADMIN','RECEPTIONIST','MANAGER','MECHANIC')) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."MANAGER" (
+CREATE TABLE "DVACHHA"."MANAGER" (
                                       "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                       "ANNUAL_SALARY" NUMBER NOT NULL ENABLE,
                                       "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                       CONSTRAINT "MANAGER_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
                                       CONSTRAINT "MANAGER_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
-                                          REFERENCES "RSHUKLA3"."EMPLOYEE" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+                                          REFERENCES "DVACHHA"."EMPLOYEE" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
                                       CONSTRAINT "MANAGER_SC_ID_UNIQUE" UNIQUE ("SC_ID") ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."RECEPTIONIST" (
+CREATE TABLE "DVACHHA"."RECEPTIONIST" (
                                            "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                            "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                            "ANNUAL_SALARY" NUMBER NOT NULL ENABLE,
                                            CONSTRAINT "RECEPTIONIST_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
                                            CONSTRAINT "RECEPTIONIST_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
-                                               REFERENCES "RSHUKLA3"."EMPLOYEE" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+                                               REFERENCES "DVACHHA"."EMPLOYEE" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
                                            CONSTRAINT "RECEPTIONIST_SC_ID_UNIQUE" UNIQUE ("SC_ID") ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."MECHANIC" (
+CREATE TABLE "DVACHHA"."MECHANIC" (
                                        "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                        "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                        "HOURS_WORKED_WEEK1" NUMBER DEFAULT 0 NOT NULL ENABLE,
@@ -69,14 +69,14 @@ CREATE TABLE "RSHUKLA3"."MECHANIC" (
                                        "HOURS_WORKED_WEEK4" NUMBER DEFAULT 0 NOT NULL ENABLE,
                                        CONSTRAINT "MECHANIC_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
                                        CONSTRAINT "MECHANIC_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
-                                           REFERENCES "RSHUKLA3"."EMPLOYEE" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+                                           REFERENCES "DVACHHA"."EMPLOYEE" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
                                        CONSTRAINT "MECHANIC_HOURS_WORKED_WEEK1" CHECK (HOURS_WORKED_WEEK1 <= 50) ENABLE,
                                        CONSTRAINT "MECHANIC_HOURS_WORKED_WEEK2" CHECK (HOURS_WORKED_WEEK2 <= 50) ENABLE,
                                        CONSTRAINT "MECHANIC_HOURS_WORKED_WEEK3" CHECK (HOURS_WORKED_WEEK3 <= 50) ENABLE,
                                        CONSTRAINT "MECHANIC_HOURS_WORKED_WEEK4" CHECK (HOURS_WORKED_WEEK4 <= 50) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."CARSERVICE" (
+CREATE TABLE "DVACHHA"."CARSERVICE" (
                                          "S_ID" NUMBER(9,0) NOT NULL ENABLE,
                                          "NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                          "TYPE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
@@ -85,25 +85,25 @@ CREATE TABLE "RSHUKLA3"."CARSERVICE" (
                                          CONSTRAINT "CARSERVICE_CHECK_TYPE" CHECK (TYPE IN ('M','R','MR')) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."MAINTAINANCE" (
+CREATE TABLE "DVACHHA"."MAINTAINANCE" (
                                            "S_ID" NUMBER(9,0) NOT NULL ENABLE,
                                            "BUNDLE" VARCHAR2(100BYTE) NOT NULL ENABLE,
                                            CONSTRAINT "MAINTAINANCEPK" PRIMARY KEY ("S_ID") ENABLE,
                                            CONSTRAINT "MAINTAINANCE_FK_S_ID" FOREIGN KEY ("S_ID")
-                                               REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
+                                               REFERENCES "DVACHHA"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
                                            CONSTRAINT "MAINTAINANCE_CHECK_BUNDLE" CHECK (BUNDLE IN ('A','B','C')) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."REPAIR" (
+CREATE TABLE "DVACHHA"."REPAIR" (
                                      "S_ID" NUMBER(9,0) NOT NULL ENABLE,
                                      "CATEGORY" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                      CONSTRAINT "REPAIR_PK" PRIMARY KEY ("S_ID") ENABLE,
                                      CONSTRAINT "REPAIR_FK_S_ID" FOREIGN KEY ("S_ID")
-                                         REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
+                                         REFERENCES "DVACHHA"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
                                      CONSTRAINT "CHECK_CATEGORY" CHECK ( CATEGORY IN ('ENGINESERVICES', 'EXHAUSTSERVICES' , 'ELECTRICALSERVICES', 'TRANSMISSIONSERVICES', 'TIRESERVICES', 'HEATINGANDACSERVICES')) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."OFFEREDPRICE" (
+CREATE TABLE "DVACHHA"."OFFEREDPRICE" (
                                            "S_ID" NUMBER(9,0) NOT NULL ENABLE,
                                            "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                            "BRAND" VARCHAR2(100 BYTE) NOT NULL ENABLE,
@@ -111,22 +111,22 @@ CREATE TABLE "RSHUKLA3"."OFFEREDPRICE" (
                                            CONSTRAINT "OFFEREDPRICE_PK" PRIMARY KEY ("S_ID", "SC_ID" ,"BRAND") ENABLE,
                                            CONSTRAINT "OFFEREDPRICE_CHECK_BRAND" CHECK (BRAND IN ('HONDA','NISSAN','TOYOTA','LEXUS','INFINITI')) ENABLE,
                                            CONSTRAINT "OFFEREDPRICE_FK_S_ID" FOREIGN KEY ("S_ID")
-                                               REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
+                                               REFERENCES "DVACHHA"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE,
                                            CONSTRAINT "OFFEREDPRICE_FK_SC_ID" FOREIGN KEY ("SC_ID")
-                                               REFERENCES "RSHUKLA3"."SERVICECENTER" ("SC_ID") ON DELETE CASCADE ENABLE
+                                               REFERENCES "DVACHHA"."SERVICECENTER" ("SC_ID") ON DELETE CASCADE ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."OFFEREDTIME" (
+CREATE TABLE "DVACHHA"."OFFEREDTIME" (
                                           "S_ID" NUMBER(9,0) NOT NULL ENABLE,
                                           "BRAND" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                           "HRS" NUMBER NOT NULL ENABLE,
                                           CONSTRAINT "OFFEREDTIME_PK" PRIMARY KEY ("S_ID", "BRAND") ENABLE,
                                           CONSTRAINT "OFFEREDTIME_CHECK_BRAND" CHECK (BRAND IN ('HONDA','NISSAN','TOYOTA','LEXUS','INFINITI')) ENABLE,
                                           CONSTRAINT "OFFEREDTIME_FK_S_ID" FOREIGN KEY ("S_ID")
-                                              REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE
+                                              REFERENCES "DVACHHA"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."CUSTOMER" (
+CREATE TABLE "DVACHHA"."CUSTOMER" (
                                        "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
                                        "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                        "F_NAME" VARCHAR2(100 BYTE) NOT NULL ENABLE,
@@ -138,11 +138,11 @@ CREATE TABLE "RSHUKLA3"."CUSTOMER" (
                                        "STATUS" NUMBER(1,0) NOT NULL ENABLE,
                                        CONSTRAINT "CUSTOMER_PK" PRIMARY KEY ("USER_ID", "SC_ID") ENABLE,
                                        CONSTRAINT "CUSTOMER_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
-                                           REFERENCES "RSHUKLA3"."USERS" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+                                           REFERENCES "DVACHHA"."USERS" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
                                        CONSTRAINT "CUSTOMER_EMAIL_UNIQUE" UNIQUE ("EMAIL") ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."VEHICLE" (
+CREATE TABLE "DVACHHA"."VEHICLE" (
                                       "VIN" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                       "USER_ID" NUMBER(9,0) NOT NULL ENABLE,
                                       "SC_ID" NUMBER(5,0) NOT NULL ENABLE,
@@ -153,10 +153,10 @@ CREATE TABLE "RSHUKLA3"."VEHICLE" (
                                       CONSTRAINT "VEHICLE_PK" PRIMARY KEY ("VIN") ENABLE,
                                       CONSTRAINT "VEHICLE_CHECK_BRAND" CHECK (BRAND IN ('HONDA','NISSAN','TOYOTA','LEXUS','INFINITI')) ENABLE,
                                       CONSTRAINT "VEHICLE_FK_USER_ID_SC_ID" FOREIGN KEY ("USER_ID","SC_ID")
-                                          REFERENCES "RSHUKLA3"."CUSTOMER" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE
+                                          REFERENCES "DVACHHA"."CUSTOMER" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."SERVICEEVENT" (
+CREATE TABLE "DVACHHA"."SERVICEEVENT" (
                                            "SE_ID" NUMBER(5,0) NOT NULL ENABLE,
                                            "VIN" VARCHAR2(100 BYTE) NOT NULL ENABLE,
                                            "MECH_ID" NUMBER(9,0) NOT NULL ENABLE,
@@ -169,25 +169,25 @@ CREATE TABLE "RSHUKLA3"."SERVICEEVENT" (
                                            "TOTAL_HOURS" NUMBER(2,0) NOT NULL ENABLE,
                                            CONSTRAINT "SERVICEEVENT_PK" PRIMARY KEY ("SE_ID") ENABLE,
                                            CONSTRAINT "SERVICEEVENT_FK_VIN" FOREIGN KEY ("VIN")
-                                               REFERENCES "RSHUKLA3"."VEHICLE" ("VIN") ON DELETE CASCADE ENABLE,
+                                               REFERENCES "DVACHHA"."VEHICLE" ("VIN") ON DELETE CASCADE ENABLE,
                                            CONSTRAINT "SERVICEEVENT_FK_MECH_ID_SC_ID" FOREIGN KEY ("MECH_ID", "SC_ID")
-                                               REFERENCES "RSHUKLA3"."MECHANIC" ("USER_ID", "SC_ID") ON DELETE CASCADE ENABLE,
+                                               REFERENCES "DVACHHA"."MECHANIC" ("USER_ID", "SC_ID") ON DELETE CASCADE ENABLE,
                                            CONSTRAINT "SERVICEEVENT_FK_CUST_ID" FOREIGN KEY ("CUST_ID","SC_ID")
-                                               REFERENCES "RSHUKLA3"."CUSTOMER" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+                                               REFERENCES "DVACHHA"."CUSTOMER" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
                                            CONSTRAINT "SERVICEEVENT_CHECK_AMOUNT_PAID" CHECK (STATUS IN ('UNPAID','PAID')) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."SERVICEEVENTDETAILS" (
+CREATE TABLE "DVACHHA"."SERVICEEVENTDETAILS" (
                                                   "SE_ID" NUMBER(5,0) NOT NULL ENABLE,
                                                   "S_ID" NUMBER(5,0) NOT NULL ENABLE,
                                                   CONSTRAINT "SERVICEEVENTDETAILS_PK" PRIMARY KEY ("SE_ID","S_ID") ENABLE,
                                                   CONSTRAINT "SERVICEEVENTDETAILS_FK_SE_ID" FOREIGN KEY ("SE_ID")
-                                                      REFERENCES "RSHUKLA3"."SERVICEEVENT" ("SE_ID") ON DELETE CASCADE ENABLE,
+                                                      REFERENCES "DVACHHA"."SERVICEEVENT" ("SE_ID") ON DELETE CASCADE ENABLE,
                                                   CONSTRAINT "SERVICEEVENTDETAILS_FK_S_ID" FOREIGN KEY ("S_ID")
-                                                      REFERENCES "RSHUKLA3"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE
+                                                      REFERENCES "DVACHHA"."CARSERVICE" ("S_ID") ON DELETE CASCADE ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."SLOTS"
+CREATE TABLE "DVACHHA"."SLOTS"
 (
     "WEEK" NUMBER(1,0) NOT NULL ENABLE,
     "SLOT_DAY" NUMBER(1,0) NOT NULL ENABLE,
@@ -199,7 +199,7 @@ CREATE TABLE "RSHUKLA3"."SLOTS"
     CONSTRAINT "SLOTS_CHECK_SLOTS" CHECK (SLOTS BETWEEN 1 AND 11) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."MECHANICSCHEDULE"
+CREATE TABLE "DVACHHA"."MECHANICSCHEDULE"
 (
     "MS_ID" NUMBER(9,0) NOT NULL ENABLE,
     "MECH_ID" NUMBER(9,0) NOT NULL ENABLE,
@@ -208,13 +208,13 @@ CREATE TABLE "RSHUKLA3"."MECHANICSCHEDULE"
     "AVAILABLE" VARCHAR2(100 BYTE) NOT NULL ENABLE,
     CONSTRAINT "MECHANICSCHEDULE_PK" PRIMARY KEY ("MS_ID") ENABLE,
     CONSTRAINT "MECHANICSCHEDULE_FK_MECH_ID_SC_ID" FOREIGN KEY ("MECH_ID","SC_ID")
-        REFERENCES "RSHUKLA3"."MECHANIC" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
+        REFERENCES "DVACHHA"."MECHANIC" ("USER_ID","SC_ID") ON DELETE CASCADE ENABLE,
     CONSTRAINT "MECHANICSCHEDULE_FK_SLOT_ID" FOREIGN KEY ("SLOT_ID")
-        REFERENCES "RSHUKLA3"."SLOTS" ("SLOT_ID") ON DELETE CASCADE ENABLE,
+        REFERENCES "DVACHHA"."SLOTS" ("SLOT_ID") ON DELETE CASCADE ENABLE,
     CONSTRAINT "MECHANICSCHEDULE_AVAILABLE" CHECK (AVAILABLE IN ('AVAILABLE','WORKING','TIMEOFF','CLOSED')) ENABLE
 );
 
-CREATE TABLE "RSHUKLA3"."MECHANICSCHEDULESWAP"
+CREATE TABLE "DVACHHA"."MECHANICSCHEDULESWAP"
 (
     "REGISTER_ID" NUMBER(9,0) NOT NULL ENABLE,
     "MS_ID1" NUMBER(9,0) NOT NULL ENABLE,
@@ -222,12 +222,10 @@ CREATE TABLE "RSHUKLA3"."MECHANICSCHEDULESWAP"
     "APPROVED" NUMBER(1,0),
     CONSTRAINT "MECHANICSCHEDULESWAP_PK" PRIMARY KEY ("REGISTER_ID") ENABLE,
     CONSTRAINT "MECHANICSCHEDULESWAP_FK_MS_ID1" FOREIGN KEY ("MS_ID1")
-        REFERENCES "RSHUKLA3"."MECHANICSCHEDULE" ("MS_ID") ON DELETE CASCADE ENABLE,
+        REFERENCES "DVACHHA"."MECHANICSCHEDULE" ("MS_ID") ON DELETE CASCADE ENABLE,
     CONSTRAINT "MECHANICSCHEDULESWAP_FK_MS_ID2" FOREIGN KEY ("MS_ID2")
-        REFERENCES "RSHUKLA3"."MECHANICSCHEDULE" ("MS_ID") ON DELETE CASCADE ENABLE
+        REFERENCES "DVACHHA"."MECHANICSCHEDULE" ("MS_ID") ON DELETE CASCADE ENABLE
 );
-
-
 -- TRIGGERS
 
 -- CREATE TRIGGER MECHANIC_TIMEOFF

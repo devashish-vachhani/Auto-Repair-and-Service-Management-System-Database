@@ -110,3 +110,30 @@ FOR EACH ROW
         SET C.STATUS = 1
         WHERE C.SC_ID = :NEW.SC_ID AND C.USER_ID = :NEW.USER_ID;
     END;
+
+create or replace TRIGGER UPDATE_LAST_SERVICE
+AFTER INSERT ON SERVICEEVENTDETAILS
+FOR EACH ROW
+DECLARE vehicle_id varchar(8);
+BEGIN
+    SELECT VIN into vehicle_id
+    FROM SERVICEEVENT SE
+    WHERE SE.SE_ID = :NEW.SE_ID;
+    IF :NEW.S_ID BETWEEN 113 AND 115 THEN
+        IF :NEW.S_ID = 113 THEN
+            UPDATE VEHICLE V
+            SET V.LAST_SERVICE = 'A'
+            WHERE V.VIN = vehicle_id;
+        END IF;
+        IF :NEW.S_ID = 114 THEN
+            UPDATE VEHICLE V
+            SET V.LAST_SERVICE = 'B'
+            WHERE V.VIN = vehicle_id;
+        END IF;
+        IF :NEW.S_ID = 115 THEN
+            UPDATE VEHICLE V
+            SET V.LAST_SERVICE = 'C'
+            WHERE V.VIN = vehicle_id;
+        END IF;
+    END IF;
+END;

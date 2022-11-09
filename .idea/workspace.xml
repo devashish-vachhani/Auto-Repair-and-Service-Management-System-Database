@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AUTOR:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="86f61baf-65ee-40b6-9936-6cd6c8922526" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/autor/sql/populating_data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/createTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/dropTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/dropTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/sql/triggers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/sql/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/createTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/sql/dropTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/dropTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/autor/sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/autor/sql/triggers.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +50,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/autor/sql" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
